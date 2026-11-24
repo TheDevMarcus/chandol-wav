@@ -1,8 +1,47 @@
 import { state, emit } from './state.js';
 import { go, path } from './router.js';
 
-const PROXY = 'https://YOUR-JUICE-BACKEND.example.com';
-const API = PROXY + '/api';
+const WORKER = 'https://chandolwav-radio.codename1121111.workers.dev';
+
+const bridge = () => (window.wavDesktop && window.wavDesktop.vault) || null;
+
+let base = '';
+let baseP = null;
+
+function ready() {
+  if (!baseP) {
+    baseP = bridge()
+      ? Promise.resolve('')
+      : fetch(WORKER + '/vault/config')
+          .then((r) => r.json())
+          .then((c) => { base = (c && c.proxy) ? c.proxy + '/api' : ''; return base; })
+          .catch(() => '');
+  }
+  return baseP;
+}
+
+async function vaultGet(path, opts) {
+  const b = bridge();
+  if (b) return b.get(path);
+  await ready();
+  if (!base) throw new Error('no vault');
+  return fetch(base + path, opts).then((r) => r.json());
+}
+
+async function vaultPost(path, body) {
+  const b = bridge();
+  if (b) return b.post(path, body);
+  await ready();
+  if (!base) throw new Error('no vault');
+  return fetch(base + path, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(body),
+  }).then((r) => r.json());
+}
+
+const mediaUrl = (u) => (!u ? '' : bridge() ? '/vault/stream?u=' + encodeURIComponent(u) : u);
+const streamUrl = (path) => (bridge() ? '/vault/stream?p=' + encodeURIComponent(path) : base + path);
 const CHUNK = 300;
 const SEARCH_LIMIT = 30;
 const K_ON = 'chandol-juice';
@@ -112,8 +151,8 @@ function toTrack(s) {
     era: String(s.era || (meta && meta.era) || ''),
     live: sub.indexOf('live') === 0 || TAG_LIVE.test(name),
     tags: tagsOf(s, name, sub, status, dur),
-    url: s.audioUrl || (API + '/download-song?id=' + encodeURIComponent(s.id)),
-    cover: s.coverUrl || '',
+    url: s.audioUrl ? mediaUrl(s.audioUrl) : streamUrl('/download-song?id=' + encodeURIComponent(s.id)),
+    cover: mediaUrl(s.coverUrl || ''),
     dur: dur,
   };
 }
@@ -135,16 +174,12 @@ function keep(list) {
 }
 
 async function fetchChunk(ids) {
-  const res = await fetch(API + '/player/queue-songs', {
-    method: 'POST',
-    headers: { 'Content-Type': 'application/json' },
-    body: JSON.stringify({ ids }),
-  }).then((r) => r.json());
+  const res = await vaultPost('/player/queue-songs', { ids });
   return (res.songs || []).filter((s) => s && s.id != null).map(toTrack);
 }
 
 async function load() {
-  const pool = await fetch(API + '/songs/shuffle-pool', { cache: 'no-store' }).then((r) => r.json());
+  const pool = await vaultGet('/songs/shuffle-pool', { cache: 'no-store' });
   rawIds = new Set((pool.rawIds || []).map(String));
   instIds = new Set((pool.instrumentalIds || []).map(String));
   const ids = shuffle(pool.ids || []);
@@ -183,8 +218,11 @@ function onScroll() {
 export function vaultLyrics(id) {
   const n = String(id || '').replace(/^j/, '');
   if (!n) return Promise.resolve(null);
-  return fetch(API + '/lyrics?id=' + encodeURIComponent(n))
-    .then((r) => (r.ok ? r.json() : null))
+  const b = bridge();
+  const req = b
+    ? b.lyrics(n)
+    : ready().then(() => (base ? fetch(base + '/lyrics?id=' + encodeURIComponent(n)).then((r) => (r.ok ? r.json() : null)) : null));
+  return req
     .then((d) => {
       const text = d && typeof d.lyrics === 'string' ? d.lyrics.trim() : '';
       if (!text) return null;
@@ -195,7 +233,7 @@ export function vaultLyrics(id) {
 
 export async function searchJuice(q, signal) {
   const params = new URLSearchParams({ q: q, limit: String(SEARCH_LIMIT), offset: '0' });
-  const res = await fetch(API + '/search/songs?' + params.toString(), { signal }).then((r) => r.json());
+  const res = await vaultGet('/search/songs?' + params.toString(), { signal });
   const list = (res.songs || []).filter((s) => s && s.id != null).map(toTrack);
   return keep(list);
 }

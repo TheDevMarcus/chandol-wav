@@ -24,6 +24,7 @@
     "productName": ".wav",
     "files": [
       "main.js",
+      "vault.js",
       "discord.js",
       "integrate-linux.js",
       "preload.js",

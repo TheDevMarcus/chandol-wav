@@ -6,6 +6,7 @@ const { autoUpdater } = require('electron-updater');
 const launcher = require('./integrate-linux');
 const { maybeIntegrate } = launcher;
 const discord = require('./discord');
+const vault = require('./vault');
 
 app.setName('.wav');
 app.setDesktopName('chandol-wav.desktop');
@@ -33,6 +34,9 @@ let server = null;
 let quitting = false;
 
 function handler(req, res) {
+      if ((req.url || '').startsWith('/vault/stream')) {
+        return vault.stream(new URL(req.url, 'http://localhost'), req, res);
+      }
       let rel = decodeURIComponent((req.url || '/').split('?')[0]);
       rel = path.normalize(rel).replace(/^(\.\.[\\/])+/, '').replace(/^[\\/]+/, '');
       if (!rel) rel = 'index.html';
@@ -205,6 +209,9 @@ if (!single) {
     });
     ipcMain.on('presence:set', (e, payload) => { if (fromOurPage(e)) discord.setPresence(payload); });
     ipcMain.on('presence:clear', (e) => { if (fromOurPage(e)) discord.clear(); });
+    ipcMain.handle('vault:get', (e, p) => (fromOurPage(e) ? vault.get(p) : null));
+    ipcMain.handle('vault:post', (e, p, body) => (fromOurPage(e) ? vault.post(p, body) : null));
+    ipcMain.handle('vault:lyrics', (e, id) => (fromOurPage(e) ? vault.lyrics(id) : null));
     ipcMain.handle('app:version', (e) => (fromOurPage(e) ? app.getVersion() : null));
     ipcMain.handle('launcher:status', (e) => (fromOurPage(e) ? launcher.status() : null));
     ipcMain.handle('launcher:set', (e, on) => {

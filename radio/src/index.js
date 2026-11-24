@@ -75,6 +75,37 @@ async function api(req, env, url) {
   return new Response(JSON.stringify(r.body), { status: r.status, headers: h });
 }
 
+async function vault(req, env, url) {
+  const h = cors(req);
+  if (req.method === 'OPTIONS') return new Response(null, { status: 204, headers: h });
+  const o = req.headers.get('Origin') || '';
+  const fromApp = req.headers.get('x-chandol-app') === '1';
+  if (!fromApp && (!o || !allowed(req))) return new Response(JSON.stringify({ error: 'forbidden' }), { status: 403, headers: h });
+  if (url.pathname === '/vault/config') {
+    return new Response(JSON.stringify({
+      proxy: env.VAULT_PROXY || '',
+      api: env.VAULT_API || '',
+      media: env.VAULT_MEDIA || ''
+    }), { headers: h });
+  }
+  if (url.pathname === '/vault/lyrics') {
+    const id = String(url.searchParams.get('id') || '');
+    if (!/^[0-9]{1,12}$/.test(id)) return new Response(JSON.stringify({ error: 'bad id' }), { status: 400, headers: h });
+    if (!env.VAULT_SUPABASE || !env.VAULT_ANON_KEY) return new Response(JSON.stringify({ id, lyrics: '' }), { headers: h });
+    try {
+      const r = await fetch(env.VAULT_SUPABASE + '/rest/v1/songs?select=lyrics&id=eq.' + id, {
+        headers: { apikey: env.VAULT_ANON_KEY }
+      });
+      const rows = await r.json();
+      const lyrics = Array.isArray(rows) && rows[0] && typeof rows[0].lyrics === 'string' ? rows[0].lyrics : '';
+      return new Response(JSON.stringify({ id, lyrics }), { headers: h });
+    } catch (e) {
+      return new Response(JSON.stringify({ id, lyrics: '' }), { headers: h });
+    }
+  }
+  return new Response(JSON.stringify({ error: 'not found' }), { status: 404, headers: h });
+}
+
 export default {
   async fetch(req, env) {
     const url = new URL(req.url);
@@ -92,6 +123,7 @@ export default {
       if (body.action === 'find-user') return new Response(JSON.stringify(await env.ACCOUNTS.get(env.ACCOUNTS.idFromName('main')).findUser(String(body.name || ''))), { headers: { 'content-type': 'application/json' } });
       return env.RADIO.get(env.RADIO.idFromName('main')).admin(body);
     }
+    if (url.pathname.startsWith('/vault/')) return vault(req, env, url);
     if (url.pathname === '/') return new Response('chandol.wav radio', { headers: { 'content-type': 'text/plain' } });
     return new Response('not found', { status: 404 });
   },
