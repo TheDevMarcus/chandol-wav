@@ -261,4 +261,15 @@ bootJuice();
 route(true);
 loadTracks();
 
+if (window.wavDesktop && window.wavDesktop.version) {
+  window.wavDesktop.version().then((v) => {
+    const f = document.querySelector('footer');
+    if (!v || !f || f.querySelector('.appver')) return;
+    const line = document.createElement('div');
+    line.className = 'appver';
+    line.textContent = 'v' + v;
+    f.appendChild(line);
+  }).catch(() => {});
+}
+
 

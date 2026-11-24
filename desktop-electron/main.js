@@ -184,6 +184,7 @@ if (!single) {
       userDataDir: app.getPath('userData'),
       icon: path.join(__dirname, 'build', 'icon.png')
     });
+    ipcMain.handle('app:version', (e) => (fromOurPage(e) ? app.getVersion() : null));
     ipcMain.handle('launcher:status', (e) => (fromOurPage(e) ? launcher.status() : null));
     ipcMain.handle('launcher:set', (e, on) => {
       if (!fromOurPage(e)) return { ok: false, reason: 'denied' };
@@ -205,8 +206,17 @@ if (!single) {
 
     try {
       autoUpdater.autoDownload = true;
-      autoUpdater.checkForUpdatesAndNotify();
-      setInterval(() => autoUpdater.checkForUpdatesAndNotify(), 6 * 60 * 60 * 1000);
+      let updateReady = false;
+      let lastCheck = 0;
+      autoUpdater.on('update-downloaded', () => { updateReady = true; });
+      const checkUpdates = () => {
+        if (updateReady || Date.now() - lastCheck < 5000) return;
+        lastCheck = Date.now();
+        Promise.resolve(autoUpdater.checkForUpdatesAndNotify()).catch(() => {});
+      };
+      checkUpdates();
+      setInterval(checkUpdates, 30 * 1000);
+      win.on('show', checkUpdates);
     } catch (e) {}
 
     globalShortcut.register('MediaPlayPause', clickToggle);
