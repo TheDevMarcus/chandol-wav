@@ -98,8 +98,12 @@ async function refreshTray() {
 }
 
 function createTray() {
-  const iconPath = path.join(__dirname, 'build', 'tray.png');
-  let img = nativeImage.createFromPath(iconPath);
+  // build/ is packaged through package.json "files", so these paths exist in the installed app
+  let img = nativeImage.createFromPath(path.join(__dirname, 'build', 'tray.png'));
+  if (img.isEmpty()) {
+    img = nativeImage.createFromPath(path.join(__dirname, 'build', 'icon.png'));
+    if (!img.isEmpty()) img = img.resize({ width: 32, height: 32 });
+  }
   if (img.isEmpty()) img = nativeImage.createEmpty();
   tray = new Tray(img);
   tray.setToolTip('.wav');

@@ -13,7 +13,6 @@ data/lyrics-index.json
 desktop-electron/node_modules/
 desktop-electron/release/
 desktop-electron/dist/
-desktop-electron/build/tray.png
 
 # local secrets
 .dev.vars
