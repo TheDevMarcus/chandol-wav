@@ -2,8 +2,11 @@ import { state, audio, on } from '../core/state.js';
 
 const CLIENTS = {
   chandol: '1560069643568156684',
-  boywithuke: '1560142254373605388'
+  boywithuke: '1560142254373605388',
+  juice: '1560734064762429485'
 };
+
+const STATUS_LINE = { juice: 1 };
 
 const KEY = 'chandol-discord';
 const DRIFT_MS = 3000;
@@ -39,6 +42,7 @@ function payload(start) {
     title: t.name,
     artist: t.artist,
     cover: t.cover,
+    statusDisplayType: STATUS_LINE[t.artistKey] || 0,
     start: start,
     end: dur > 0 ? start + dur * 1000 : 0
   };

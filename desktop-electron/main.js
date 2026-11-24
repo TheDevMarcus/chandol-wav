@@ -13,7 +13,8 @@ if (process.platform === 'win32') app.setAppUserModelId('dev.pages.chandolwav.de
 app.commandLine.appendSwitch('enable-features', 'MediaSessionService');
 
 const DIST = path.join(__dirname, 'dist');
-const PORT = 8427;
+const PORTS = [8427, 8428, 8430, 8431, 8432, 8433];
+let port = PORTS[0];
 const TOKEN_HEADER = 'x-chandol-app';
 
 const TYPES = {
@@ -31,9 +32,7 @@ let tray = null;
 let server = null;
 let quitting = false;
 
-function startServer() {
-  return new Promise((resolve, reject) => {
-    server = http.createServer((req, res) => {
+function handler(req, res) {
       let rel = decodeURIComponent((req.url || '/').split('?')[0]);
       rel = path.normalize(rel).replace(/^(\.\.[\\/])+/, '').replace(/^[\\/]+/, '');
       if (!rel) rel = 'index.html';
@@ -54,10 +53,29 @@ function startServer() {
         if (!err) return send(file);
         send(path.join(DIST, 'index.html'));
       });
+}
+
+function listen(p) {
+  return new Promise((resolve, reject) => {
+    const s = http.createServer(handler);
+    const fail = (e) => { s.removeListener('error', fail); s.close(); reject(e); };
+    s.on('error', fail);
+    s.listen(p, '127.0.0.1', () => {
+      s.removeListener('error', fail);
+      resolve(s);
     });
-    server.on('error', reject);
-    server.listen(PORT, '127.0.0.1', () => resolve());
   });
+}
+
+async function startServer() {
+  for (const p of PORTS) {
+    try {
+      server = await listen(p);
+      port = p;
+      return;
+    } catch (e) {}
+  }
+  throw new Error('every port in ' + PORTS.join(', ') + ' is taken');
 }
 
 function runInPage(js) {
@@ -138,10 +156,10 @@ function createWindow(serverOk) {
   });
 
   if (serverOk) {
-    win.loadURL('http://localhost:' + PORT + '/');
+    win.loadURL('http://localhost:' + port + '/');
   } else {
-    const msg = 'chandol.wav could not start its local server on port ' + PORT +
-      '. Another program is using that port. Close it and restart the app.';
+    const msg = '.wav could not start its local server. Every port it uses (' +
+      PORTS.join(', ') + ') is in use by another program.';
     win.loadURL('data:text/html,' + encodeURIComponent(
       '<body style="background:#04040a;color:#f3f3f7;font:15px sans-serif;' +
       'display:grid;place-items:center;height:100vh;margin:0;text-align:center;padding:40px">' +
@@ -174,12 +192,12 @@ if (!single) {
       await startServer();
     } catch (e) {
       serverOk = false;
-      console.error('server failed on port ' + PORT + ':', e.message);
+      console.error('server failed:', e.message);
     }
     createWindow(serverOk);
     createTray();
 
-    const fromOurPage = (e) => !!(e.senderFrame && e.senderFrame.url.startsWith('http://localhost:' + PORT + '/'));
+    const fromOurPage = (e) => !!(e.senderFrame && e.senderFrame.url.startsWith('http://localhost:' + port + '/'));
     const launcherOpts = () => ({
       nativeImage,
       userDataDir: app.getPath('userData'),

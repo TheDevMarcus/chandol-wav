@@ -2,12 +2,12 @@ import { DurableObject } from 'cloudflare:workers';
 export { Accounts } from './accounts.js';
 export { Hub } from './hub.js';
 
-const R2 = 'https://YOUR-R2-PUBLIC-BUCKET.r2.dev';
+const R2 = 'https://pub-2989a57bef044d8ca64d013c394cfebc.r2.dev';
 const ARTISTS = [
   { key: 'chandol', json: 'chandol.json', name: 'chandol' },
   { key: 'boywithuke', json: 'boywithuke.json', name: 'BoyWithUke' },
 ];
-const ORIGINS = ['https://chandolwav.pages.dev', 'http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:8427', 'http://localhost:8427'];
+const ORIGINS = ['https://chandolwav.pages.dev', 'http://127.0.0.1:8080', 'http://localhost:8080', 'http://127.0.0.1:8427', 'http://localhost:8427', 'http://127.0.0.1:8428', 'http://localhost:8428', 'http://127.0.0.1:8430', 'http://localhost:8430', 'http://127.0.0.1:8431', 'http://localhost:8431', 'http://127.0.0.1:8432', 'http://localhost:8432', 'http://127.0.0.1:8433', 'http://localhost:8433'];
 const DAY = 24 * 60 * 60 * 1000;
 const GAP = 1500;
 const MAX_QUEUE = 25;
