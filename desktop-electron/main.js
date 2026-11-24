@@ -1,10 +1,15 @@
-const { app, BrowserWindow, Tray, Menu, globalShortcut, nativeImage, shell } = require('electron');
+const { app, BrowserWindow, Tray, Menu, globalShortcut, nativeImage, shell, dialog, ipcMain } = require('electron');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
 const { autoUpdater } = require('electron-updater');
+const launcher = require('./integrate-linux');
+const { maybeIntegrate } = launcher;
 
 app.setName('.wav');
+app.setDesktopName('chandol-wav.desktop');
+if (process.platform === 'win32') app.setAppUserModelId('dev.pages.chandolwav.desktop');
+app.commandLine.appendSwitch('enable-features', 'MediaSessionService');
 
 const DIST = path.join(__dirname, 'dist');
 const PORT = 8427;
@@ -98,7 +103,6 @@ async function refreshTray() {
 }
 
 function createTray() {
-  // build/ is packaged through package.json "files", so these paths exist in the installed app
   let img = nativeImage.createFromPath(path.join(__dirname, 'build', 'tray.png'));
   if (img.isEmpty()) {
     img = nativeImage.createFromPath(path.join(__dirname, 'build', 'icon.png'));
@@ -125,6 +129,7 @@ function createWindow(serverOk) {
     autoHideMenuBar: true,
     icon: path.join(__dirname, 'build', 'icon.png'),
     webPreferences: {
+      preload: path.join(__dirname, 'preload.js'),
       contextIsolation: true,
       nodeIntegration: false,
       backgroundThrottling: false
@@ -172,6 +177,31 @@ if (!single) {
     }
     createWindow(serverOk);
     createTray();
+
+    const fromOurPage = (e) => !!(e.senderFrame && e.senderFrame.url.startsWith('http://localhost:' + PORT + '/'));
+    const launcherOpts = () => ({
+      nativeImage,
+      userDataDir: app.getPath('userData'),
+      icon: path.join(__dirname, 'build', 'icon.png')
+    });
+    ipcMain.handle('launcher:status', (e) => (fromOurPage(e) ? launcher.status() : null));
+    ipcMain.handle('launcher:set', (e, on) => {
+      if (!fromOurPage(e)) return { ok: false, reason: 'denied' };
+      try {
+        return on ? launcher.add(launcherOpts()) : launcher.remove(launcherOpts());
+      } catch (err) {
+        console.error('launcher toggle failed:', err.message);
+        return { ok: false, reason: 'error', ...launcher.status() };
+      }
+    });
+
+    setTimeout(() => {
+      maybeIntegrate({
+        dialog, nativeImage, win,
+        userDataDir: app.getPath('userData'),
+        icon: path.join(__dirname, 'build', 'icon.png')
+      });
+    }, 3000);
 
     try {
       autoUpdater.autoDownload = true;

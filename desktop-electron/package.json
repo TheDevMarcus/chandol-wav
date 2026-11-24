@@ -1,8 +1,9 @@
 {
   "name": "chandol-wav-desktop",
-  "version": "0.1.1",
+  "version": "0.1.2",
   "description": "chandol.wav desktop player",
   "main": "main.js",
+  "desktopName": "chandol-wav.desktop",
   "author": {
     "name": "TheDevMarcus",
     "email": "TheDevMarcus@users.noreply.github.com"
@@ -23,6 +24,8 @@
     "productName": ".wav",
     "files": [
       "main.js",
+      "integrate-linux.js",
+      "preload.js",
       "dist/**/*",
       "build/icon.png",
       "build/tray.png"
@@ -42,7 +45,7 @@
         "Name": ".wav",
         "Comment": "Every chandol & BoyWithUke song in one place",
         "Categories": "AudioVideo;Audio;Player;",
-        "StartupWMClass": ".wav"
+        "StartupWMClass": "chandol-wav"
       },
       "executableName": "chandol-wav",
       "artifactName": "chandol-wav-${version}.${ext}"
@@ -62,7 +65,7 @@
       {
         "provider": "github",
         "owner": "TheDevMarcus",
-        "repo": "chandol-wav"
+        "repo": "wav"
       }
     ],
     "artifactName": "chandol-wav-${version}.${ext}"

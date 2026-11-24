@@ -16,6 +16,24 @@ export function setRemoteHook(h) { remoteHook = h; }
 function showToast() { showAnimated($('toast')); }
 function hideToast() { hideAnimated($('toast'), 300); }
 
+let lastSec = -1;
+
+function mediaState(st) {
+  if ('mediaSession' in navigator) navigator.mediaSession.playbackState = st;
+}
+
+function mediaPosition() {
+  if (!('mediaSession' in navigator) || !navigator.mediaSession.setPositionState) return;
+  if (!audio.duration || !isFinite(audio.duration)) return;
+  try {
+    navigator.mediaSession.setPositionState({
+      duration: audio.duration,
+      position: Math.min(Math.max(audio.currentTime, 0), audio.duration),
+      playbackRate: audio.playbackRate || 1
+    });
+  } catch (e) {}
+}
+
 function updateNow() {
   const t = state.tracks[state.cur];
   if (!t) return;
@@ -30,7 +48,7 @@ function updateNow() {
   wave.seed(t.id); wave.reset(); wave.paint(0);
   $('cur').textContent = '0:00'; $('dur').textContent = t.dur ? fmt(t.dur) : '0:00';
   if ('mediaSession' in navigator && window.MediaMetadata) {
-    navigator.mediaSession.metadata = new MediaMetadata({ title: t.name, artist: t.artist, artwork: t.cover ? [{ src: t.cover }] : [] });
+    navigator.mediaSession.metadata = new MediaMetadata({ title: t.name, artist: t.artist, artwork: t.cover ? [{ src: t.cover, sizes: '512x512' }] : [] });
   }
   emit('trackchange', t);
 }
@@ -102,6 +120,7 @@ export function initPlayer() {
   waveEl.addEventListener('pointerup', (e) => {
     if (!seeking) return;
     audio.currentTime = seekFromEvent(e) * audio.duration;
+    mediaPosition();
     seeking = false;
   });
 
@@ -110,19 +129,25 @@ export function initPlayer() {
     $('toggle').setAttribute('aria-label', 'Pause');
     document.body.classList.add('is-playing');
     retrigger($('toggleIcon'), 'pop');
+    mediaState('playing');
+    mediaPosition();
   });
   audio.addEventListener('pause', () => {
     $('toggleIcon').firstElementChild.setAttribute('d', PLAY);
     $('toggle').setAttribute('aria-label', 'Play');
     document.body.classList.remove('is-playing');
     retrigger($('toggleIcon'), 'pop');
+    mediaState('paused');
+    mediaPosition();
   });
   audio.addEventListener('ended', () => step(1, true));
-  audio.addEventListener('loadedmetadata', () => { $('dur').textContent = fmt(audio.duration); });
+  audio.addEventListener('loadedmetadata', () => { $('dur').textContent = fmt(audio.duration); mediaPosition(); });
   audio.addEventListener('timeupdate', () => {
     if (seeking || !audio.duration) return;
     wave.paint(audio.currentTime / audio.duration);
     $('cur').textContent = fmt(audio.currentTime);
+    const sec = Math.floor(audio.currentTime);
+    if (sec !== lastSec) { lastSec = sec; mediaPosition(); }
   });
 
   audio.addEventListener('error', () => { if (state.cur >= 0) showToast(); });
@@ -171,9 +196,26 @@ export function initPlayer() {
   });
 
   if ('mediaSession' in navigator) {
-    navigator.mediaSession.setActionHandler('play', () => audio.play());
-    navigator.mediaSession.setActionHandler('pause', () => audio.pause());
-    navigator.mediaSession.setActionHandler('nexttrack', () => step(1, false));
-    navigator.mediaSession.setActionHandler('previoustrack', () => step(-1, false));
+    const handler = (name, fn) => {
+      try { navigator.mediaSession.setActionHandler(name, fn); } catch (e) {}
+    };
+    handler('play', () => audio.play());
+    handler('pause', () => audio.pause());
+    handler('stop', () => audio.pause());
+    handler('nexttrack', () => step(1, false));
+    handler('previoustrack', () => step(-1, false));
+    handler('seekto', (d) => {
+      if (!d || typeof d.seekTime !== 'number') return;
+      audio.currentTime = d.seekTime;
+      mediaPosition();
+    });
+    handler('seekbackward', (d) => {
+      audio.currentTime = Math.max(0, audio.currentTime - ((d && d.seekOffset) || 10));
+      mediaPosition();
+    });
+    handler('seekforward', (d) => {
+      audio.currentTime = Math.min(audio.duration || 0, audio.currentTime + ((d && d.seekOffset) || 10));
+      mediaPosition();
+    });
   }
 }

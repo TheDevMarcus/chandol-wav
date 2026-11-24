@@ -102,4 +102,37 @@ export function initSettings() {
     setFlag('chandol-censor-mild-ok', mildBox.checked);
     emit('lyricsettings');
   });
+  const launcher = window.wavDesktop && window.wavDesktop.launcher;
+  const lGroup = document.getElementById('launcherGroup');
+  if (launcher && lGroup) {
+    const lBox = document.getElementById('setLauncher');
+    const lHint = document.getElementById('launcherHint');
+    const sync = (st) => {
+      lBox.checked = !!st.installed;
+      lBox.disabled = !!st.installed && !st.ours;
+      lHint.textContent = st.installed && !st.ours
+        ? 'Already set up on this computer'
+        : st.installed
+          ? 'Added. Turn off to remove the launcher entry and icons'
+          : 'Adds .wav to your app menu so you can find and pin it like any other app';
+    };
+    launcher.status().then((st) => {
+      if (!st || !st.supported) return;
+      lGroup.hidden = false;
+      sync(st);
+    }).catch(() => {});
+    lBox.addEventListener('change', async () => {
+      const want = lBox.checked;
+      lBox.disabled = true;
+      try {
+        const r = await launcher.set(want);
+        sync(r && typeof r.installed === 'boolean' ? r : await launcher.status());
+        if (r && !r.ok) lHint.textContent = "Couldn't change that. Try again";
+      } catch (e) {
+        lBox.checked = !want;
+        lBox.disabled = false;
+        lHint.textContent = "Couldn't change that. Try again";
+      }
+    });
+  }
 }

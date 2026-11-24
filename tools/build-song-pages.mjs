@@ -3,7 +3,7 @@ import path from 'path';
 import { songSlugs } from '../js/core/slugs.js';
 
 const SITE = 'https://chandolwav.pages.dev';
-const R2 = 'https://YOUR-R2-PUBLIC-BUCKET.r2.dev';
+const R2 = 'https://pub-2989a57bef044d8ca64d013c394cfebc.r2.dev';
 const ARTISTS = [
   { key: 'chandol', json: 'chandol.json', name: 'chandol' },
   { key: 'boywithuke', json: 'boywithuke.json', name: 'BoyWithUke' },
@@ -53,7 +53,7 @@ for (const t of tracks) {
 <title>${esc(t.name)} – ${esc(t.artist)} | chandol.wav</title>
 <meta name="description" content="${esc(desc)}">
 <meta name="theme-color" content="#eaa9f0">
-<link rel="icon" type="image/png" href="/img/logo.png">
+<link rel="icon" type="image/png" href="/img/favicon.png">
 <meta property="og:type" content="music.song">
 <meta property="og:site_name" content="chandol.wav">
 <meta property="og:url" content="${page}">
