@@ -6,7 +6,7 @@ import { avatarImg, defaultBanner, favRow, trackByKey, keyOf, setProfileContext,
 import { state } from '../core/state.js';
 import { go, path } from '../core/router.js';
 
-const API = 'https://YOUR-RADIO-WORKER.YOUR-SUBDOMAIN.workers.dev';
+const API = 'https://chandolwav-radio.codename1121111.workers.dev';
 const TK = 'chandol-token', UK = 'chandol-user';
 const USER_SVG = '<svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="4"/><path d="M4 20c1.5-4 4.5-6 8-6s6.5 2 8 6"/></svg>';
 const EYE_SVG = '<svg viewBox="0 0 24 24"><path d="M2 12s3.5-7 10-7 10 7 10 7-3.5 7-10 7S2 12 2 12z"/><circle cx="12" cy="12" r="3"/></svg>';
@@ -23,7 +23,6 @@ let sheet, card, mode = 'login', pushTimer = 0, syncing = false, lastSync = 0, s
 export const getToken = () => token;
 export const getUser = () => user;
 export const isLoggedIn = () => !!(token && user);
-// only decides what to SHOW; the server checks admin on every action
 export const isAdmin = () => isLoggedIn() && user.role === 'admin';
 export const apiCall = (method, path, body) => call(method, path, body);
 
@@ -73,7 +72,6 @@ function setSession(t, u) {
   emit('account', user);
 }
 
-/* ---------- library sync ---------- */
 async function pull(firstLogin) {
   if (!isLoggedIn() || syncing) return;
   syncing = true; syncState = 'syncing'; paintSync();
@@ -109,7 +107,6 @@ async function push(now) {
   pushTimer = setTimeout(go, 1200);
 }
 
-/* ---------- header button ---------- */
 function paintButton() {
   const b = $('acctBtn');
   if (!b) return;
@@ -125,8 +122,6 @@ function paintButton() {
     b.title = 'Log in or sign up';
   }
 }
-
-/* ---------- sheet ---------- */
 
 function field(label, name, type, auto, extra) {
   const w = el('label', 'afield');

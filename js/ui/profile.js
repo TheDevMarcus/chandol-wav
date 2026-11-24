@@ -3,7 +3,7 @@ import { state } from '../core/state.js';
 import { play } from '../player/player.js';
 import { toast } from './toast.js';
 
-const API = 'https://YOUR-RADIO-WORKER.YOUR-SUBDOMAIN.workers.dev';
+const API = 'https://chandolwav-radio.codename1121111.workers.dev';
 const HUES = [[292, 330], [262, 300], [210, 262], [330, 12], [180, 230], [20, 48], [140, 190], [248, 288]];
 const IMG_OK = /^https:\/\/i\.ibb\.co\//;
 const PLAY_SVG = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
@@ -11,7 +11,6 @@ const PLAY_SVG = '<svg viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>';
 function hash(s) { let h = 2166136261; for (const c of String(s || '').toLowerCase()) h = Math.imul(h ^ c.charCodeAt(0), 16777619); return h >>> 0; }
 function pair(name) { return HUES[hash(name) % HUES.length]; }
 
-// a plain "no picture yet" avatar, same colors every time for the same name
 export function defaultAvatarUrl(name) {
   const [a, b] = pair(name);
   const svg = `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64"><defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="hsl(${a} 55% 62%)"/><stop offset="1" stop-color="hsl(${b} 50% 38%)"/></linearGradient></defs><rect width="64" height="64" fill="url(#g)"/><circle cx="32" cy="25" r="11" fill="#fff" fill-opacity=".85"/><path d="M11 60c2.5-12 11-18 21-18s18.5 6 21 18z" fill="#fff" fill-opacity=".85"/></svg>`;
@@ -36,7 +35,6 @@ export function avatarImg(cls, u) {
 const BADGES = {
   admin: { img: 'img/badge-admin.png', tip: 'Admin · runs chandol.wav' },
 };
-// one floating tooltip for every badge, attached to the page so scroll boxes can't cut it off
 let tipEl = null;
 function showTip(target) {
   if (!tipEl) { tipEl = document.createElement('div'); tipEl.className = 'btip'; tipEl.setAttribute('role', 'tooltip'); document.body.appendChild(tipEl); }

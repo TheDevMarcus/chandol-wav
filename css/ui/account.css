@@ -105,7 +105,6 @@
   .adacts { width: 100%; justify-content: flex-end; }
 }
 
-/* profile pictures */
 .aav, .aavbig { overflow: hidden; }
 .aav img, .aavbig img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .apic { position: relative; }
@@ -126,14 +125,12 @@
 .rav { flex: none; width: 20px; height: 20px; border-radius: 50%; object-fit: cover; align-self: center; }
 .adbio { color: var(--text) !important; opacity: .8; font-style: italic; }
 
-/* default + real avatars */
 .rav { flex: none; width: 22px; height: 22px; border-radius: 50%; overflow: hidden; align-self: center; cursor: pointer; }
 .rav img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .plink { cursor: pointer; }
 b.plink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .adrow .aav.plink:hover { box-shadow: 0 0 0 2px var(--pink); }
 
-/* banner on your own account card */
 .acard .aban { position: relative; height: 120px; margin: -30px -28px 0; border-radius: 26px 26px 0 0; overflow: hidden; }
 .aban img { width: 100%; height: 100%; object-fit: cover; display: block; }
 .aban.busy { opacity: .5; }
@@ -147,7 +144,6 @@ b.plink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .acard .aavbig { border: 4px solid rgba(14,12,20,.96); width: 84px; height: 84px; }
 .aview { display: block; margin: 14px auto 4px; }
 
-/* favorite song */
 .afavbox { display: flex; flex-direction: column; gap: 8px; }
 .afavacts { display: flex; gap: 14px; justify-content: flex-start; }
 .afavacts .alink { align-self: auto; }
@@ -171,7 +167,6 @@ b.plink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .pfavplay svg { width: 16px; height: 16px; fill: currentColor; }
 .pfavnone { color: var(--muted); font-size: .84rem; font-weight: 400; padding: 4px 2px; }
 
-/* someone's profile card */
 .pcard { width: min(420px, 100%); padding: 0; overflow: hidden; }
 .pban { position: relative; height: 140px; background: #0d0a14; }
 .pban img { width: 100%; height: 100%; object-fit: cover; display: block; }
@@ -190,12 +185,10 @@ b.plink:hover { text-decoration: underline; text-underline-offset: 3px; }
 .acard .aprof { pointer-events: none; }
 .acard .aprof .apic, .acard .aprof .apic * { pointer-events: auto; }
 
-/* banner buttons grouped top-left */
 .abanacts { position: absolute; top: 12px; left: 12px; z-index: 3; display: flex; gap: 6px; }
 .abanacts .abanbtn { position: static; }
 .abanrm { display: none !important; }
 
-/* badges */
 .badges { display: inline-flex; align-items: center; gap: 4px; flex: none; vertical-align: middle; }
 .badges:empty { display: none; }
 .badge { position: relative; display: inline-grid; place-items: center; width: 22px; height: 22px; border-radius: 6px; cursor: default; outline: none; }

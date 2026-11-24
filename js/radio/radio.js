@@ -7,7 +7,7 @@ import { avatarImg, openProfile, badgesFor } from '../ui/profile.js';
 import { buildStage, setSong, tickLyrics } from './stage.js';
 import * as viz from '../player/viz.js';
 
-const WS_URL = 'wss://YOUR-RADIO-WORKER.YOUR-SUBDOMAIN.workers.dev/ws';
+const WS_URL = 'wss://chandolwav-radio.codename1121111.workers.dev/ws';
 const GAP = 1500;
 const LIVE_SVG = '<svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="2.2"/><path d="M8.5 15.5a5 5 0 0 1 0-7M15.5 8.5a5 5 0 0 1 0 7M5.6 18.4a9 9 0 0 1 0-12.8M18.4 5.6a9 9 0 0 1 0 12.8"/></svg>';
 const SKIP_SVG = '<svg viewBox="0 0 24 24"><path d="M5 5l10 7-10 7z"/><path d="M19 5v14"/></svg>';
@@ -150,7 +150,6 @@ function setTuned(v) {
 
 ra.addEventListener('ended', () => { setTimeout(() => send({ type: 'sync' }), GAP + 200); });
 
-/* ---------- page ---------- */
 const smallScreen = () => window.matchMedia('(max-width: 700px)').matches;
 
 function scene() {
@@ -446,7 +445,6 @@ function tick() {
   if (!$('radioView').hidden) rafId = setTimeout(tick, 500);
 }
 
-/* ---------- little "on air" chip while you browse ---------- */
 let chip;
 function paintChip() {
   if (!chip) {
@@ -463,7 +461,6 @@ function paintChip() {
   chip.querySelector('.rchipt').textContent = snap.now.song.name + ' – ' + snap.now.song.artist;
 }
 
-/* ---------- the player bar shows the live song while tuned in ---------- */
 let dockTimer = 0, dockOn = false, dockCover = '';
 function paintDock() {
   const dock = document.querySelector('.dock');

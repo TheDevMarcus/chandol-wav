@@ -107,14 +107,12 @@
 html.no-anim .rlive i, html.no-anim .rtune.on svg, html.no-anim .rchip { animation: none; }
 .rnbg { will-change: transform; transform: translateZ(0); }
 .rtrack i { will-change: transform; }
-/* player bar while the radio is on */
 .dock.radio-mode #prev, .dock.radio-mode #next, .dock.radio-mode #shuffle, .dock.radio-mode #repeat,
 .dock.radio-mode .wave, .dock.radio-mode #dockLike, .dock.radio-mode .queuebtn, .dock.radio-mode .eqbtn,
 .dock.radio-mode .lyrbtn, .dock.radio-mode .vol, .dock.radio-mode .dock-shuffle { display: none !important; }
 .dock.radio-mode .tl { justify-content: flex-start; }
 .dock.radio-mode #artist { color: var(--pink); }
 .dock.radio-mode #dock-info, .dock.radio-mode #dock-cv { cursor: pointer; }
-/* the radio page shows everything itself, so the bar steps aside */
 body.page-radio .dock, body.page-radio .cxbar, body.page-radio .qp-wrap, body.page-radio .lp-wrap { display: none !important; }
 body.page-radio #radioView { padding-bottom: 40px; }
 

@@ -9,7 +9,6 @@ const waveEl = $('wave');
 const wave = createWave(waveEl, 80);
 let seeking = false;
 
-// when another device is being controlled, connect.js takes over playing
 let remoteHook = null;
 export function setRemoteHook(h) { remoteHook = h; }
 
