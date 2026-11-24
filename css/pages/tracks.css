@@ -79,6 +79,7 @@
   border-radius: 14px; cursor: pointer;
   transition: border-color .15s, background .15s;
 }
+.srow[hidden] { display: none; }
 .srow:hover { border-color: rgba(var(--accent-rgb),.35); background: rgba(255,255,255,.08); }
 .srow input[type="radio"] { margin-top: 3px; accent-color: var(--pink); flex-shrink: 0; }
 .srow input[type="radio"]:checked ~ .stext strong { color: var(--pink); }

@@ -10,6 +10,7 @@ import { initTracks, loadTracks } from './pages/tracks.js';
 import { initMissing, onShowMissing } from './pages/missing.js';
 import { initOverlay } from './player/overlay.js';
 import { initSettings } from './pages/settings.js';
+import { initPresence } from './player/presence.js';
 import { onShowTracks } from './pages/tracks.js';
 import { initSearch } from './ui/search.js';
 import { initLogoMenu } from './ui/logomenu.js';
@@ -260,6 +261,7 @@ initRouter();
 bootJuice();
 route(true);
 loadTracks();
+initPresence();
 
 if (window.wavDesktop && window.wavDesktop.version) {
   window.wavDesktop.version().then((v) => {

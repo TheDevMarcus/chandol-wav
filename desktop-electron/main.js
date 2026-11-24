@@ -5,6 +5,7 @@ const path = require('path');
 const { autoUpdater } = require('electron-updater');
 const launcher = require('./integrate-linux');
 const { maybeIntegrate } = launcher;
+const discord = require('./discord');
 
 app.setName('.wav');
 app.setDesktopName('chandol-wav.desktop');
@@ -184,6 +185,8 @@ if (!single) {
       userDataDir: app.getPath('userData'),
       icon: path.join(__dirname, 'build', 'icon.png')
     });
+    ipcMain.on('presence:set', (e, payload) => { if (fromOurPage(e)) discord.setPresence(payload); });
+    ipcMain.on('presence:clear', (e) => { if (fromOurPage(e)) discord.clear(); });
     ipcMain.handle('app:version', (e) => (fromOurPage(e) ? app.getVersion() : null));
     ipcMain.handle('launcher:status', (e) => (fromOurPage(e) ? launcher.status() : null));
     ipcMain.handle('launcher:set', (e, on) => {
@@ -224,7 +227,7 @@ if (!single) {
     globalShortcut.register('MediaPreviousTrack', clickPrev);
   });
 
-  app.on('before-quit', () => { quitting = true; });
+  app.on('before-quit', () => { quitting = true; discord.shutdown(); });
   app.on('will-quit', () => {
     globalShortcut.unregisterAll();
     if (server) server.close();

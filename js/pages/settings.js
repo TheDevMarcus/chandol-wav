@@ -1,6 +1,7 @@
 
 import { emit } from '../core/state.js';
 import { getGlow, setGlow, getGlowColor, setGlowColor, getGlowSource, setGlowSource } from '../player/viz.js';
+import { getDiscord, setDiscord } from '../player/presence.js';
 
 function getFlag(key, fallback) {
   try { const v = localStorage.getItem(key); return v == null ? fallback : v === '1'; } catch (e) { return fallback; }
@@ -102,9 +103,16 @@ export function initSettings() {
     setFlag('chandol-censor-mild-ok', mildBox.checked);
     emit('lyricsettings');
   });
-  const launcher = window.wavDesktop && window.wavDesktop.launcher;
   const lGroup = document.getElementById('launcherGroup');
+  const dBox = document.getElementById('setDiscord');
+  if (window.wavDesktop && lGroup) lGroup.hidden = false;
+  if (window.wavDesktop && dBox) {
+    dBox.checked = getDiscord();
+    dBox.addEventListener('change', () => { setDiscord(dBox.checked); });
+  }
+  const launcher = window.wavDesktop && window.wavDesktop.launcher;
   if (launcher && lGroup) {
+    const lRow = document.getElementById('launcherRow');
     const lBox = document.getElementById('setLauncher');
     const lHint = document.getElementById('launcherHint');
     const sync = (st) => {
@@ -118,7 +126,7 @@ export function initSettings() {
     };
     launcher.status().then((st) => {
       if (!st || !st.supported) return;
-      lGroup.hidden = false;
+      if (lRow) lRow.hidden = false;
       sync(st);
     }).catch(() => {});
     lBox.addEventListener('change', async () => {

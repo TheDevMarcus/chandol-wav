@@ -1,6 +1,6 @@
 {
   "name": "chandol-wav-desktop",
-  "version": "0.1.2",
+  "version": "0.1.3",
   "description": "chandol.wav desktop player",
   "main": "main.js",
   "desktopName": "chandol-wav.desktop",
@@ -24,6 +24,7 @@
     "productName": ".wav",
     "files": [
       "main.js",
+      "discord.js",
       "integrate-linux.js",
       "preload.js",
       "dist/**/*",
