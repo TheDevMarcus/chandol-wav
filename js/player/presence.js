@@ -41,7 +41,7 @@ function payload(start) {
     id: t.id,
     title: t.name,
     artist: t.artist,
-    cover: t.cover,
+    cover: t.coverRemote || t.cover,
     statusDisplayType: STATUS_LINE[t.artistKey] || 0,
     start: start,
     end: dur > 0 ? start + dur * 1000 : 0

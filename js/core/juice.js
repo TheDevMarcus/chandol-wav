@@ -153,6 +153,7 @@ function toTrack(s) {
     tags: tagsOf(s, name, sub, status, dur),
     url: s.audioUrl ? mediaUrl(s.audioUrl) : streamUrl('/download-song?id=' + encodeURIComponent(s.id)),
     cover: mediaUrl(s.coverUrl || ''),
+    coverRemote: s.coverUrl || '',
     dur: dur,
   };
 }
