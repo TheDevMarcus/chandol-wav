@@ -1,0 +1,31 @@
+.mwrap { max-width: 640px; margin: 0 auto; text-align: center; padding-top: 10px; }
+.mwrap h2 { font-size: 1.8rem; font-weight: 600; }
+.msub { color: var(--muted); margin-top: 6px; }
+.minput {
+  width: 100%; margin-top: 22px; padding: 15px 24px; border-radius: 999px;
+  border: 1px solid var(--line); background: var(--panel); color: var(--text); font: inherit; font-size: 1.05rem;
+  backdrop-filter: blur(14px); -webkit-backdrop-filter: blur(14px);
+}
+.minput::placeholder { color: var(--muted); }
+.minput:focus { outline: none; border-color: var(--pink); box-shadow: 0 0 0 3px rgba(var(--accent-rgb), 0.2); }
+#missResults { margin-top: 28px; text-align: left; }
+.mhead { text-align: center; font-weight: 600; font-size: 1.05rem; margin-bottom: 14px; }
+.mnone { text-align: center; color: var(--muted); padding: 20px; }
+.mini {
+  display: grid; grid-template-columns: 68px 1fr 46px; gap: 14px; align-items: center;
+  padding: 12px; margin-bottom: 12px; border-radius: 18px;
+  background: var(--panel); border: 1px solid var(--line);
+}
+.mini .art {
+  display: block; width: 68px; height: 68px; border-radius: 12px; overflow: hidden;
+  background: linear-gradient(135deg, #2a1e3a, #120e1c); border: 1px solid var(--line);
+}
+.mini .info2 { min-width: 0; }
+.mini .mt { font-weight: 600; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mini .ms { color: var(--muted); font-size: .8rem; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.mrow { display: flex; align-items: center; gap: 10px; margin-top: 8px; font-size: .72rem; color: var(--muted); font-variant-numeric: tabular-nums; }
+.mbar { flex: 1; height: 6px; border-radius: 3px; background: rgba(255, 255, 255, 0.18); cursor: pointer; overflow: hidden; }
+.mfill { display: block; height: 100%; width: 0; background: var(--pink); }
+.mbtn { width: 46px; height: 46px; border-radius: 50%; background: #fff; color: #0a0a10; display: grid; place-items: center; transition: background .15s; }
+.mbtn:hover { background: var(--pink); }
+.mbtn svg { width: 22px; height: 22px; fill: currentColor; }

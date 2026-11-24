@@ -1,0 +1,103 @@
+artist,title,era,found,source,confidence,album,albumType,releaseDate,albumReleaseDate,trackNumber,trackCount,genre,explicit,durationSec,matchedTitle,link
+BoyWithUke,Blurry Nights,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,1,13,Singer/Songwriter,true,203,Blurry Nights,https://music.apple.com/us/album/blurry-nights/1546539122?i=1546539123&uo=4
+BoyWithUke,Letter for My Bed,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,2,13,Singer/Songwriter,false,208,Letter for My Bed,https://music.apple.com/us/album/letter-for-my-bed/1546539122?i=1546539125&uo=4
+BoyWithUke,Route 9,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,3,13,Singer/Songwriter,false,184,Route 9,https://music.apple.com/us/album/route-9/1546539122?i=1546539366&uo=4
+BoyWithUke,Lost,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,4,13,Singer/Songwriter,false,216,Lost,https://music.apple.com/us/album/lost/1546539122?i=1546539367&uo=4
+BoyWithUke,2.9 Miles Away,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,5,13,Singer/Songwriter,false,180,2.9 Miles Away,https://music.apple.com/us/album/2-9-miles-away/1546539122?i=1546539369&uo=4
+BoyWithUke,I Won’t Let You Go,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,6,13,Singer/Songwriter,false,140,I Won’t Let You Go,https://music.apple.com/us/album/i-wont-let-you-go/1546539122?i=1546539370&uo=4
+BoyWithUke,Galaxy,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,7,13,Singer/Songwriter,false,161,Galaxy,https://music.apple.com/us/album/galaxy/1546539122?i=1546539375&uo=4
+BoyWithUke,I Wish,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,8,13,Singer/Songwriter,false,256,I Wish,https://music.apple.com/us/album/i-wish/1546539122?i=1546539380&uo=4
+BoyWithUke,Lovely,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,9,13,Singer/Songwriter,false,331,Lovely,https://music.apple.com/us/album/lovely/1546539122?i=1546539383&uo=4
+BoyWithUke,Nihilist,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,10,13,Singer/Songwriter,false,147,Nihilist,https://music.apple.com/us/album/nihilist/1546539122?i=1546539384&uo=4
+BoyWithUke,Zoning Out,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,11,13,Singer/Songwriter,false,180,Zoning Out,https://music.apple.com/us/album/zoning-out/1546539122?i=1546539387&uo=4
+BoyWithUke,Just Let Me Go,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,12,13,Singer/Songwriter,false,196,Just Let Me Go,https://music.apple.com/us/album/just-let-me-go/1546539122?i=1546539392&uo=4
+BoyWithUke,So Cold,,true,iTunes,exact,Melatonin Dreams,Album,2021-01-22,2021-01-22,13,13,Singer/Songwriter,true,180,So Cold,https://music.apple.com/us/album/so-cold/1546539122?i=1546539607&uo=4
+BoyWithUke,Falling for You,,true,iTunes,exact,Trouvaille,Single,2021-03-05,2021-03-05,1,3,Pop,false,200,Falling for You,https://music.apple.com/us/album/falling-for-you/1553925186?i=1553925189&uo=4
+BoyWithUke,Tired of Wanting You,,true,iTunes,exact,Trouvaille,Single,2021-03-05,2021-03-05,2,3,Pop,false,125,Tired of Wanting You,https://music.apple.com/us/album/tired-of-wanting-you/1553925186?i=1553925195&uo=4
+BoyWithUke,Animal Crackers,,true,iTunes,exact,Trouvaille,Single,2021-03-05,2021-03-05,3,3,Pop,false,188,Animal Crackers,https://music.apple.com/us/album/animal-crackers/1553925186?i=1553925204&uo=4
+BoyWithUke,Small Fry,,true,iTunes,exact,Small Fry,Single,2021-04-02,2021-04-02,1,1,Pop,false,116,Small Fry,https://music.apple.com/us/album/small-fry/1556086787?i=1556086788&uo=4
+BoyWithUke,Psycho,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,2,11,Pop,false,101,Psycho,https://music.apple.com/us/album/psycho/1566323688?i=1566323701&uo=4
+BoyWithUke,Out of Tune,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,3,11,Pop,true,178,Out of Tune,https://music.apple.com/us/album/out-of-tune/1566323688?i=1566323974&uo=4
+BoyWithUke,Shy,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,4,11,Pop,true,167,Shy,https://music.apple.com/us/album/shy/1566323688?i=1566324037&uo=4
+BoyWithUke,Hazel Eyes,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,5,11,Pop,false,175,Hazel Eyes,https://music.apple.com/us/album/hazel-eyes/1566323688?i=1566324054&uo=4
+BoyWithUke,"Haha, Hi",,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,6,11,Pop,true,215,"Haha, Hi",https://music.apple.com/us/album/haha-hi/1566323688?i=1566324057&uo=4
+BoyWithUke,Kind of Sick of Life,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,7,11,Pop,true,153,Kind of Sick of Life,https://music.apple.com/us/album/kind-of-sick-of-life/1566323688?i=1566324060&uo=4
+BoyWithUke,Bad Luck,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,8,11,Pop,true,205,Bad Luck,https://music.apple.com/us/album/bad-luck/1566323688?i=1566324216&uo=4
+BoyWithUke,Sleep Deprived,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,9,11,Pop,false,85,Sleep Deprived,https://music.apple.com/us/album/sleep-deprived/1566323688?i=1566324218&uo=4
+BoyWithUke,Forget Me,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,10,11,Pop,true,163,Forget Me,https://music.apple.com/us/album/forget-me/1566323688?i=1566324224&uo=4
+BoyWithUke,Bok Choy,,true,iTunes,exact,Fever Dreams,Album,2021-06-04,2021-06-04,11,11,Pop,false,104,Bok Choy,https://music.apple.com/us/album/bok-choy/1566323688?i=1566324228&uo=4
+BoyWithUke,LoveSick,,true,iTunes,exact,Faded,Single,2021-09-10,2021-09-10,1,2,Pop,true,146,LoveSick,https://music.apple.com/us/album/lovesick/1595274435?i=1595274441&uo=4
+BoyWithUke,Loafers,,true,iTunes,exact,Faded,Single,2021-09-10,2021-09-10,2,2,Pop,false,215,Loafers,https://music.apple.com/us/album/loafers/1595274435?i=1595274444&uo=4
+BoyWithUke,Two Moons,,true,iTunes,exact,Fever Dreams,Album,2021-10-29,2021-06-04,1,11,Pop,true,225,Two Moons,https://music.apple.com/us/album/two-moons/1566323688?i=1566323692&uo=4
+BoyWithUke,Toxic,,true,iTunes,exact,Serotonin Dreams,Album,2021-10-29,2022-05-06,11,10,Alternative,false,168,Toxic,https://music.apple.com/us/album/toxic/1614745679?i=1614745881&uo=4
+BoyWithUke,Long Drives,,true,iTunes,exact,Serotonin Dreams,Album,2022-01-21,2022-05-06,2,10,Alternative,false,160,Long Drives,https://music.apple.com/us/album/long-drives/1614745679?i=1614745716&uo=4
+BoyWithUke,IDGAF,,true,iTunes,exact,Serotonin Dreams,Album,2022-03-18,2022-05-06,7,10,Alternative,true,141,IDGAF (feat. blackbear),https://music.apple.com/us/album/idgaf-feat-blackbear/1614745679?i=1614745723&uo=4
+BoyWithUke,Let Me Down,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,3,10,Alternative,true,184,Let Me Down,https://music.apple.com/us/album/let-me-down/1614745679?i=1614745717&uo=4
+BoyWithUke,She Said No,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,5,10,Alternative,true,154,She Said No,https://music.apple.com/us/album/she-said-no/1614745679?i=1614745720&uo=4
+BoyWithUke,Heart of Ice,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,6,10,Alternative,true,189,Heart of Ice,https://music.apple.com/us/album/heart-of-ice/1614745679?i=1614745721&uo=4
+BoyWithUke,Contigo,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,8,10,Alternative,true,151,Contigo (feat. Powfu),https://music.apple.com/us/album/contigo-feat-powfu/1614745679?i=1614745728&uo=4
+BoyWithUke,Understand,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,9,10,Alternative,true,172,Understand,https://music.apple.com/us/album/understand/1614745679?i=1614745877&uo=4
+BoyWithUke,Scared of the Dark,,true,iTunes,exact,Serotonin Dreams,Album,2022-04-15,2022-05-06,10,10,Alternative,true,174,Scared of the Dark,https://music.apple.com/us/album/scared-of-the-dark/1614745679?i=1614745879&uo=4
+BoyWithUke,Far Away,,true,iTunes,exact,Serotonin Dreams,Album,2022-05-06,2022-05-06,1,10,Alternative,true,145,Far Away,https://music.apple.com/us/album/far-away/1614745679?i=1614745685&uo=4
+BoyWithUke,Prairies,,true,iTunes,exact,Serotonin Dreams,Album,2022-05-06,2022-05-06,4,10,Alternative,true,192,Prairies (feat. mxmtoon),https://music.apple.com/us/album/prairies-feat-mxmtoon/1614745679?i=1614745719&uo=4
+BoyWithUke,Sick of U,,true,iTunes,exact,Sick of U (feat. Oliver Tree),Single,2022-09-30,2022-09-30,1,1,Alternative,true,169,Sick of U (feat. Oliver Tree),https://music.apple.com/us/album/sick-of-u-feat-oliver-tree/1645455230?i=1645455238&uo=4
+BoyWithUke,Rockstar,,true,iTunes,exact,Lucid Dreams,EP,2023-02-10,2023-10-06,5,6,Alternative,true,194,Rockstar,https://music.apple.com/us/album/rockstar/1700383337?i=1700383357&uo=4
+BoyWithUke,idtwcbf (friends),,true,iTunes,exact,Antisocial,Single,2023-02-24,2023-02-24,2,3,Alternative,true,152,idtwcbf (friends),https://music.apple.com/us/album/idtwcbf-friends/1672485786?i=1672486007&uo=4
+BoyWithUke,Nosedive,,true,iTunes,exact,Antisocial,Single,2023-02-24,2023-02-24,3,3,Alternative,false,187,Nosedive,https://music.apple.com/us/album/nosedive/1672485786?i=1672486008&uo=4
+BoyWithUke,Out Of Reach,,true,iTunes,exact,Out Of Reach,Single,2023-04-07,2023-04-07,1,1,Alternative,false,165,Out Of Reach,https://music.apple.com/us/album/out-of-reach/1678890687?i=1678890688&uo=4
+BoyWithUke,Trauma,,true,iTunes,exact,Lucid Dreams,Album,2023-08-04,2023-10-06,5,8,Alternative,true,163,Trauma,https://music.apple.com/us/album/trauma/1700383337?i=1700383519&uo=4
+BoyWithUke,Migraine,,true,iTunes,exact,Lucid Dreams,EP,2023-09-08,2023-10-06,1,6,Alternative,false,207,Migraine,https://music.apple.com/us/album/migraine/1700383337?i=1700383338&uo=4
+BoyWithUke,Lucid (interlude),,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,1,8,Alternative,false,107,Lucid (interlude),https://music.apple.com/us/album/lucid-interlude/1700383337?i=1700383361&uo=4
+BoyWithUke,Problematic,,true,iTunes,exact,Lucid Dreams,EP,2023-10-06,2023-10-06,2,6,Alternative,true,165,Problematic,https://music.apple.com/us/album/problematic/1700383337?i=1700383344&uo=4
+BoyWithUke,Bad Things,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,2,8,Alternative,true,197,Bad Things,https://music.apple.com/us/album/bad-things/1700383337?i=1700383364&uo=4
+BoyWithUke,Bad Blood,,true,iTunes,exact,Lucid Dreams,EP,2023-10-06,2023-10-06,3,6,Alternative,true,166,Bad Blood,https://music.apple.com/us/album/bad-blood/1700383337?i=1700383347&uo=4
+BoyWithUke,Camouflage,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,3,8,Alternative,false,162,Camouflage,https://music.apple.com/us/album/camouflage/1700383337?i=1700383517&uo=4
+BoyWithUke,Babydoll,,true,iTunes,exact,Lucid Dreams,EP,2023-10-06,2023-10-06,4,6,Alternative,false,170,Babydoll,https://music.apple.com/us/album/babydoll/1700383337?i=1700383350&uo=4
+BoyWithUke,Nightmare,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,4,8,Alternative,true,192,Nightmare,https://music.apple.com/us/album/nightmare/1700383337?i=1700383518&uo=4
+BoyWithUke,Before I Die,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,6,8,Alternative,true,112,Before I Die,https://music.apple.com/us/album/before-i-die/1700383337?i=1700383521&uo=4
+BoyWithUke,Blue,,true,iTunes,exact,Lucid Dreams,EP,2023-10-06,2023-10-06,6,6,Alternative,false,177,Blue,https://music.apple.com/us/album/blue/1700383337?i=1700383358&uo=4
+BoyWithUke,Homesick,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,7,8,Alternative,false,160,Homesick,https://music.apple.com/us/album/homesick/1700383337?i=1700383526&uo=4
+BoyWithUke,King Of Nothing,,true,iTunes,exact,Lucid Dreams,Album,2023-10-06,2023-10-06,8,8,Alternative,false,194,King Of Nothing,https://music.apple.com/us/album/king-of-nothing/1700383337?i=1700383529&uo=4
+BoyWithUke,Can You Feel It?,,true,iTunes,exact,Burnout,Album,2024-05-31,2024-11-15,1,14,Alternative,true,184,Can You Feel It?,https://music.apple.com/us/album/can-you-feel-it/1771043976?i=1771043983&uo=4
+BoyWithUke,Ghost,,true,iTunes,exact,Burnout,Album,2024-08-01,2024-11-15,3,14,Alternative,false,239,Ghost,https://music.apple.com/us/album/ghost/1771043976?i=1771044232&uo=4
+BoyWithUke,Gaslight,,true,iTunes,exact,Burnout,Album,2024-10-11,2024-11-15,4,14,Alternative,false,202,Gaslight,https://music.apple.com/us/album/gaslight/1771043976?i=1771044236&uo=4
+BoyWithUke,Burn,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,2,14,Alternative,true,173,Burn,https://music.apple.com/us/album/burn/1771043976?i=1771043986&uo=4
+BoyWithUke,Stranger,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,5,14,Alternative,true,220,Stranger,https://music.apple.com/us/album/stranger/1771043976?i=1771044240&uo=4
+BoyWithUke,Backseat,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,6,14,Alternative,true,161,Backseat,https://music.apple.com/us/album/backseat/1771043976?i=1771044244&uo=4
+BoyWithUke,Coffee,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,7,14,Alternative,true,221,Coffee,https://music.apple.com/us/album/coffee/1771043976?i=1771044245&uo=4
+BoyWithUke,Paper Planes,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,8,14,Alternative,false,191,Paper Planes,https://music.apple.com/us/album/paper-planes/1771043976?i=1771044250&uo=4
+BoyWithUke,Petrichor (interlude),,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,9,14,Alternative,false,163,Petrichor (interlude),https://music.apple.com/us/album/petrichor-interlude/1771043976?i=1771044255&uo=4
+BoyWithUke,Pitfall,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,10,14,Alternative,true,183,Pitfall,https://music.apple.com/us/album/pitfall/1771043976?i=1771044484&uo=4
+BoyWithUke,Corduroy,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,11,14,Alternative,false,216,Corduroy,https://music.apple.com/us/album/corduroy/1771043976?i=1771044490&uo=4
+BoyWithUke,Love Lost,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,12,14,Alternative,false,217,Love Lost,https://music.apple.com/us/album/love-lost/1771043976?i=1771044495&uo=4
+BoyWithUke,Easier,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,13,14,Alternative,true,347,Easier,https://music.apple.com/us/album/easier/1771043976?i=1771044496&uo=4
+BoyWithUke,Change,,true,iTunes,exact,Burnout,Album,2024-11-15,2024-11-15,14,14,Alternative,false,199,Change,https://music.apple.com/us/album/change/1771043976?i=1771044652&uo=4
+BoyWithUke,Dear Hollywood,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,1,17,Pop,true,167,Dear Hollywood,https://music.apple.com/us/album/dear-hollywood/1835462732?i=1835462738&uo=4
+BoyWithUke,Can't Let You Go,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,2,17,Pop,false,180,Can't Let You Go,https://music.apple.com/us/album/cant-let-you-go/1835462732?i=1835462965&uo=4
+BoyWithUke,Friends,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,3,17,Pop,true,153,Friends,https://music.apple.com/us/album/friends/1835462732?i=1835462981&uo=4
+BoyWithUke,Next Best Thing,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,4,17,Pop,true,137,Next Best Thing,https://music.apple.com/us/album/next-best-thing/1835462732?i=1835463149&uo=4
+BoyWithUke,Highs Goodbyes and Lows,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,5,17,Pop,false,144,Highs Goodbyes and Lows,https://music.apple.com/us/album/highs-goodbyes-and-lows/1835462732?i=1835463156&uo=4
+BoyWithUke,Overthinking,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,6,17,Pop,true,156,Overthinking,https://music.apple.com/us/album/overthinking/1835462732?i=1835463159&uo=4
+BoyWithUke,Green,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,7,17,Pop,true,143,Green,https://music.apple.com/us/album/green/1835462732?i=1835463297&uo=4
+BoyWithUke,Terrified,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,8,17,Pop,false,146,Terrified,https://music.apple.com/us/album/terrified/1835462732?i=1835463300&uo=4
+BoyWithUke,Runaway,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,9,17,Pop,false,212,Runaway,https://music.apple.com/us/album/runaway/1835462732?i=1835463308&uo=4
+BoyWithUke,Affection,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,10,17,Pop,false,201,Affection,https://music.apple.com/us/album/affection/1835462732?i=1835463310&uo=4
+BoyWithUke,Hopeless Romantic,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,11,17,Pop,true,199,Hopeless Romantic,https://music.apple.com/us/album/hopeless-romantic/1835462732?i=1835463633&uo=4
+BoyWithUke,Blind,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,12,17,Pop,true,119,Blind,https://music.apple.com/us/album/blind/1835462732?i=1835463657&uo=4
+BoyWithUke,Enigma,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,13,17,Pop,false,95,Enigma,https://music.apple.com/us/album/enigma/1835462732?i=1835463756&uo=4
+BoyWithUke,Collared Shirt,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,14,17,Pop,false,162,Collared Shirt,https://music.apple.com/us/album/collared-shirt/1835462732?i=1835463765&uo=4
+BoyWithUke,Tension,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,15,17,Pop,false,116,Tension,https://music.apple.com/us/album/tension/1835462732?i=1835463874&uo=4
+BoyWithUke,Letter for My Future Ex,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,16,17,Pop,false,114,Letter for My Future Ex,https://music.apple.com/us/album/letter-for-my-future-ex/1835462732?i=1835463878&uo=4
+BoyWithUke,Hold My Breath,,true,iTunes,exact,BoyWithUke: B Sides,Album,2025-09-05,2025-09-05,17,17,Pop,false,169,Hold My Breath,https://music.apple.com/us/album/hold-my-breath/1835462732?i=1835463884&uo=4
+chandol,Breakfast in Bed,,true,iTunes,exact,Mercurial,Album,2026-05-22,2026-07-10,2,12,Alternative,false,175,Breakfast in Bed,https://music.apple.com/us/album/breakfast-in-bed/6786572300?i=6786572311&uo=4
+chandol,2002,,true,iTunes,exact,Mercurial,Album,2026-06-12,2026-07-10,6,12,Alternative,true,161,2002,https://music.apple.com/us/album/2002/6786572300?i=6786572511&uo=4
+chandol,What's the Rush,,true,iTunes,exact,Mercurial,Album,2026-06-26,2026-07-10,9,12,Alternative,true,191,What's the Rush?,https://music.apple.com/us/album/whats-the-rush/6786572300?i=6786572527&uo=4
+chandol,Lakeview Ct,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,1,12,Alternative,false,127,Lakeview Ct,https://music.apple.com/us/album/lakeview-ct/6786572300?i=6786572305&uo=4
+chandol,Mercury,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,3,12,Alternative,false,123,Mercury,https://music.apple.com/us/album/mercury/6786572300?i=6786572318&uo=4
+chandol,While I'm Gone,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,4,12,Alternative,false,199,While I'm Gone,https://music.apple.com/us/album/while-im-gone/6786572300?i=6786572503&uo=4
+chandol,Avalon,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,5,12,Alternative,false,60,Avalon,https://music.apple.com/us/album/avalon/6786572300?i=6786572504&uo=4
+chandol,Guilt Trip,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,7,12,Alternative,false,120,Guilt Trip,https://music.apple.com/us/album/guilt-trip/6786572300?i=6786572517&uo=4
+chandol,Reckless,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,8,12,Alternative,false,214,Reckless,https://music.apple.com/us/album/reckless/6786572300?i=6786572524&uo=4
+chandol,Feel This Way,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,10,12,Alternative,true,146,Feel This Way,https://music.apple.com/us/album/feel-this-way/6786572300?i=6786572749&uo=4
+chandol,Clothbound,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,11,12,Alternative,false,126,Clothbound,https://music.apple.com/us/album/clothbound/6786572300?i=6786572750&uo=4
+chandol,Doubt,,true,iTunes,exact,Mercurial,Album,2026-07-10,2026-07-10,12,12,Alternative,true,189,Doubt,https://music.apple.com/us/album/doubt/6786572300?i=6786572754&uo=4

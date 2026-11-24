@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="color-scheme" content="dark">
+<title>chandol.wav | every chandol &amp; BoyWithUke song, released and unreleased</title>
+<meta name="description" content="Listen to every chandol and BoyWithUke song in one place: released albums and EPs, unreleased songs and leaks, every version, synced lyrics, an EQ, playlists and the full song tracker.">
+<meta name="keywords" content="chandol, BoyWithUke, Charley Yang, chandol unreleased, BoyWithUke unreleased, chandol songs, Mercurial, and uh, chandol tracker, BoyWithUke leaks, music player">
+<meta name="author" content="chandol.wav">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#eaa9f0">
+<link rel="canonical" href="https://chandolwav.pages.dev/">
+<link rel="icon" type="image/png" href="img/logo.png">
+<link rel="apple-touch-icon" href="img/logo.png">
+
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="chandol.wav">
+<meta property="og:url" content="https://chandolwav.pages.dev/">
+<meta property="og:title" content="chandol.wav">
+<meta property="og:description" content="Every chandol &amp; BoyWithUke song in one place: released, unreleased, every version, and synced lyrics.">
+<meta property="og:image" content="https://chandolwav.pages.dev/img/og.jpg?v=2">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:image:alt" content="chandol.wav: every chandol and BoyWithUke song">
+<meta property="og:locale" content="en_US">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="chandol.wav">
+<meta name="twitter:description" content="Every chandol &amp; BoyWithUke song in one place: released, unreleased, every version, and synced lyrics.">
+<meta name="twitter:image" content="https://chandolwav.pages.dev/img/og.jpg?v=2">
+
+<script id="discord:component-embed" type="application/json">{"component":{"type":17,"accent_color":15378928,"components":[{"type":12,"items":[{"media":{"url":"https://chandolwav.pages.dev/img/og.jpg?v=2"}}]},{"type":10,"content":"## chandol.wav\nEvery **chandol** & **BoyWithUke** song in one place: released albums and EPs, unreleased songs, every version, synced lyrics, EQ and playlists."},{"type":14},{"type":1,"components":[{"type":2,"style":5,"label":"Listen now","emoji":{"name":"🎧"},"url":"https://chandolwav.pages.dev/"},{"type":2,"style":5,"label":"Albums","emoji":{"name":"💿"},"url":"https://chandolwav.pages.dev/#albums"},{"type":2,"style":5,"label":"Tracker","emoji":{"name":"📋"},"url":"https://chandolwav.pages.dev/#tracker"}]}]}}</script>
+<script type="application/ld+json">{"@context":"https://schema.org","@type":"WebSite","name":"chandol.wav","alternateName":["chandol wav","chandolwav"],"url":"https://chandolwav.pages.dev/","description":"Listen to every chandol and BoyWithUke song in one place: released albums and EPs, unreleased songs and leaks, every version, synced lyrics, an EQ, playlists and the full song tracker.","about":[{"@type":"MusicGroup","name":"chandol","alternateName":"Charley Yang"},{"@type":"MusicGroup","name":"BoyWithUke"}]}</script>
+<link rel="stylesheet" href="css/core/base.css">
+<link rel="stylesheet" href="css/ui/nav.css">
+<link rel="stylesheet" href="css/ui/juice.css">
+<link rel="stylesheet" href="css/ui/edge.css">
+<link rel="stylesheet" href="css/ui/controls.css">
+<link rel="stylesheet" href="css/pages/tracks.css">
+<link rel="stylesheet" href="css/ui/dock.css">
+<link rel="stylesheet" href="css/pages/missing.css">
+<link rel="stylesheet" href="css/ui/toast.css">
+<link rel="stylesheet" href="css/ui/overlay.css">
+<link rel="stylesheet" href="css/ui/search.css">
+<link rel="stylesheet" href="css/ui/lyricpop.css">
+<link rel="stylesheet" href="css/pages/albums.css">
+<link rel="stylesheet" href="css/pages/about.css">
+<link rel="stylesheet" href="css/ui/eq.css">
+<link rel="stylesheet" href="css/pages/library.css">
+<link rel="stylesheet" href="css/pages/tracker.css">
+<link rel="stylesheet" href="css/ui/account.css">
+<link rel="stylesheet" href="css/core/motion.css">
+<link rel="stylesheet" href="css/core/responsive.css">
+<script>try{if(localStorage.getItem('chandol-juice')==='1')document.documentElement.classList.add('juice');}catch(e){}</script>
+</head>
+<body>
+
+<canvas id="stars" aria-hidden="true"></canvas>
+
+<header>
+  <a class="mark" href="/" aria-label="chandol.wav, home"><img src="img/logo.png" alt="" width="347" height="347" fetchpriority="high" decoding="async"></a>
+  <div class="logo">chandol<span>.wav</span></div>
+  <div class="logomenu" id="logoMenu" role="menu" aria-label="Go home or pick an artist" hidden></div>
+  <script>try{if(localStorage.getItem('chandol-juice')==='1'){var l=document.querySelector('.logo');if(l)l.innerHTML='juice<span>.wav</span>';var m=document.querySelector('.mark');if(m){m.setAttribute('aria-label','juice.wav, home');var i=m.querySelector('img');if(i)i.src='img/juice.png';}document.title='juice.wav';}}catch(e){}</script>
+  <div class="bar">
+    <div class="pillbar">
+      <button class="pill active" id="navTracks" type="button">
+        <svg viewBox="0 0 24 24"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg>
+        Tracks
+      </button>
+      <button class="pill" id="navAlbums" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="2.5"/></svg>
+        Albums
+      </button>
+      <button class="pill pill-m" id="navTrackerM" type="button">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>
+        Tracker
+      </button>
+      <button class="pill" id="navLibrary" type="button">
+        <svg viewBox="0 0 24 24"><path d="M4 4v16M9 4v16M14 4l6 16"/></svg>
+        Library
+      </button>
+      <button class="pill" id="navMore" type="button" aria-haspopup="true" aria-expanded="false" aria-controls="navMoreMenu">
+        <svg viewBox="0 0 24 24"><circle cx="5" cy="12" r="1.7"/><circle cx="12" cy="12" r="1.7"/><circle cx="19" cy="12" r="1.7"/></svg>
+        More
+      </button>
+    </div>
+    <div class="navmore" id="navMoreMenu" role="menu" hidden>
+      <button class="mitem" id="navTracker" type="button">
+        <svg viewBox="0 0 24 24"><path d="M4 5h16M4 10h16M4 15h10M4 20h7"/></svg>
+        <span><b>Tracker</b><small>Every song, released and not</small></span>
+      </button>
+      <button class="mitem" id="navAbout" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="8.2" r="3.4"/><path d="M5 20c0-3.6 3.1-5.6 7-5.6s7 2 7 5.6"/></svg>
+        <span><b>About</b><small>Who Charley Yang is</small></span>
+      </button>
+      <button class="mitem" id="navMissing" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M9.5 9.5a2.5 2.5 0 1 1 3.5 2.3c-.7.4-1 1-1 1.7M12 17h.01"/></svg>
+        <span><b>Missing</b><small>Ask for a song</small></span>
+      </button>
+      <button class="mitem" id="navSettings" type="button">
+        <svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1-2.83 2.83l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-4 0v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83-2.83l.06-.06A1.65 1.65 0 0 0 4.68 15a1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1 0-4h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 2.83-2.83l.06.06A1.65 1.65 0 0 0 9 4.68a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 4 0v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 2.83l-.06.06A1.65 1.65 0 0 0 19.4 9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 0 4h-.09a1.65 1.65 0 0 0-1.51 1z"/></svg>
+        <span><b>Settings</b><small>Playback and display</small></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<main id="tracksView">
+  <div id="artistFilter" class="af"></div>
+  <div class="head">
+    <h2><span id="tracksTitle">Tracks</span><button class="qchip" id="clearQuery" type="button" hidden aria-label="Clear search">Clear<svg viewBox="0 0 24 24"><path d="M6 6l12 12M18 6L6 18"/></svg></button></h2>
+    <div class="right">
+      <span id="count"></span>
+      <select class="sortsel" id="sortSel" aria-label="Sort songs" title="Sort songs">
+        <option value="default">Default order</option>
+        <option value="new">Newest first</option>
+        <option value="old">Oldest first</option>
+        <option value="az">A – Z</option>
+        <option value="album">By album</option>
+        <option value="long">Longest first</option>
+        <option value="short">Shortest first</option>
+      </select>
+      <button class="toggle active" id="gridBtn" aria-label="Grid view" title="Grid view">
+        <svg viewBox="0 0 24 24"><rect x="4" y="4" width="6" height="6" rx="1"/><rect x="14" y="4" width="6" height="6" rx="1"/><rect x="4" y="14" width="6" height="6" rx="1"/><rect x="14" y="14" width="6" height="6" rx="1"/></svg>
+      </button>
+      <button class="toggle" id="listBtn" aria-label="List view" title="List view">
+        <svg viewBox="0 0 24 24"><path d="M8 6h12M8 12h12M8 18h12M4 6h.01M4 12h.01M4 18h.01"/></svg>
+      </button>
+    </div>
+  </div>
+  <ul class="grid" id="list"></ul>
+</main>
+
+<main id="albumsView" hidden></main>
+
+<main id="libraryView" hidden></main>
+
+<main id="adminView" hidden></main>
+
+<main id="trackerView" hidden></main>
+
+<main id="aboutView" hidden></main>
+
+<main id="missingView" hidden>
+  <div class="mwrap">
+    <h2>Missing something?</h2>
+    <p class="msub">Type the name of the song you're looking for.</p>
+    <input type="text" id="missInput" class="minput" placeholder="Song name" aria-label="Song name" autocomplete="off">
+    <div id="missResults"></div>
+  </div>
+</main>
+
+<main id="settingsView" hidden>
+  <div class="mwrap">
+    <h2>Settings</h2>
+    <div class="sgroup">
+      <h3 class="slabel">Open full player when…</h3>
+      <label class="srow">
+        <input type="radio" name="ovTrigger" value="title">
+        <span class="stext"><strong>Clicking the song title</strong><br><small>Cards play on tap; only the title opens the player</small></span>
+      </label>
+      <label class="srow">
+        <input type="radio" name="ovTrigger" value="card">
+        <span class="stext"><strong>Clicking anywhere on a card</strong><br><small>Tapping the card plays and opens the player</small></span>
+      </label>
+    </div>
+    <div class="sgroup">
+      <h3 class="slabel">Display</h3>
+      <label class="srow swrow">
+        <span class="stext"><strong>Animations</strong><br><small>Turn off to stop all motion: fades, slides, the moving starfield and card tilt</small></span>
+        <input type="checkbox" class="sw" id="setAnim" role="switch">
+      </label>
+      <label class="srow swrow">
+        <span class="stext"><strong>Match colours to the cover</strong><br><small>The background and accent colour follow the song that's playing, and the stars change colour to stand out</small></span>
+        <input type="checkbox" class="sw" id="setCover" role="switch">
+      </label>
+    </div>
+    <div class="sgroup">
+      <h3 class="slabel">Edge glow</h3>
+      <label class="srow swrow">
+        <span class="stext"><strong>Glow with the beat</strong><br><small>The edges of the screen pulse in time with whatever's playing</small></span>
+        <input type="checkbox" class="sw" id="setGlow" role="switch">
+      </label>
+      <label class="srow" id="glowSrcCover">
+        <input type="radio" name="glowSrc" value="cover">
+        <span class="stext"><strong>Colour from the cover</strong><br><small>Takes the glow out of the album art, so it changes with every song</small></span>
+      </label>
+      <label class="srow" id="glowSrcTheme">
+        <input type="radio" name="glowSrc" value="theme">
+        <span class="stext"><strong>Colour from the theme</strong><br><small>Matches the site's accent colour</small></span>
+      </label>
+      <label class="srow" id="glowSrcCustom">
+        <input type="radio" name="glowSrc" value="custom">
+        <span class="stext"><strong>Pick your own colour</strong><br><small>Always glows the colour you choose below</small></span>
+      </label>
+      <label class="srow swrow" id="glowColorRow">
+        <span class="stext"><strong>Glow colour</strong><br><small>Used when the cover colour is off</small></span>
+        <input type="color" class="scolor" id="setGlowColor" aria-label="Glow colour">
+      </label>
+    </div>
+    <div class="sgroup">
+      <h3 class="slabel">Library</h3>
+      <label class="srow swrow">
+        <span class="stext"><strong>Group song versions</strong><br><small>Show each song once on Tracks; its instrumentals, mixes and other takes are under “versions”</small></span>
+        <input type="checkbox" class="sw" id="setGroup" role="switch">
+      </label>
+    </div>
+    <div class="sgroup">
+      <h3 class="slabel">Lyrics</h3>
+      <label class="srow swrow">
+        <span class="stext"><strong>Censor explicit lyrics</strong><br><small>Swear words show as **** in the lyrics</small></span>
+        <input type="checkbox" class="sw" id="setCensor" role="switch">
+      </label>
+      <label class="srow swrow" id="mildRow">
+        <span class="stext"><strong>Don't censor mild words</strong><br><small>Leave words like damn, hell, ass and crap alone</small></span>
+        <input type="checkbox" class="sw" id="setMild" role="switch">
+      </label>
+    </div>
+  </div>
+</main>
+
+<footer>Fan-made. Music and artwork belong to chandol and their respective owners.</footer>
+
+<div class="toast" id="toast" hidden role="alert">
+  <div class="ti"><svg viewBox="0 0 24 24"><path d="M2 8.8a15 15 0 0 1 20 0M5 12.5a10 10 0 0 1 14 0M8.5 16a5 5 0 0 1 7 0M12 20h.01M3 3l18 18"/></svg></div>
+  <div><b>The connection dropped</b><p id="toastMsg">The track stopped downloading partway through.</p></div>
+  <button class="x" id="toastX" aria-label="Dismiss">&times;</button>
+  <div class="btns"><button class="pri" id="retry">Retry</button><button id="skip">Skip</button></div>
+</div>
+
+<div class="ov" id="ov" hidden role="dialog" aria-label="Now playing">
+  <canvas id="ovStarsCv" aria-hidden="true"></canvas>
+  <button class="ovbtn" id="ovClose" type="button" aria-label="Close"><svg viewBox="0 0 24 24"><path d="M6 9l6 6 6-6"/></svg></button>
+  <div class="ovtr">
+    <button class="ovbtn" id="ovFull" type="button" aria-label="Fullscreen"><svg viewBox="0 0 24 24"><path d="M4 9V4h5M20 9V4h-5M4 15v5h5M20 15v5h-5"/></svg></button>
+    <button class="ovbtn" id="ovLike" type="button" aria-label="Like" title="Add to Liked Songs"><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.3 5c-2.3 4.6-9.3 9-9.3 9z"/></svg></button>
+    <button class="ovbtn" id="ovShareBtn" type="button" aria-label="Share" title="Share this song"><svg viewBox="0 0 24 24"><path d="M12 15V3M7 8l5-5 5 5"/><path d="M5 12v7a1 1 0 0 0 1 1h12a1 1 0 0 0 1-1v-7"/></svg></button>
+    <button class="ovpill" id="ovInfoBtn" type="button" title="Song info (I)"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M12 11v5M12 8h.01"/></svg>Info</button>
+    <button class="ovpill" id="ovQueueBtn" type="button"><svg viewBox="0 0 24 24"><path d="M4 6h12M4 12h12M4 18h8M18 15v6M15 18h6"/></svg>Queue</button>
+  </div>
+  <div class="ovgrid">
+    <section class="ovleft">
+      <div class="ovcover"><div class="ovart"><img id="ovCover" alt="" hidden></div></div>
+      <div class="ovfrom">PLAYING FROM <b>CHANDOL.WAV</b></div>
+      <h2 id="ovTitle"></h2>
+      <p id="ovArtist"></p>
+      <div class="ovpanel">
+        <div class="ovseek"><span id="ovCur">0:00</span><div class="wave" id="ovWave" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div><span id="ovRem">-0:00</span></div>
+        <div class="ovctl">
+          <button class="ic" id="ovShuffle" type="button" aria-label="Shuffle" title="Shuffle"><svg viewBox="0 0 24 24"><path d="M17 3h4v4l-1.5-1.5-4.6 4.6-1.4-1.4 4.6-4.6L17 3zM3 7h3.6c1 0 1.9.5 2.5 1.3l7.2 9.2c.2.3.6.5 1 .5H17v-2l4 3-4 3v-2h-.7c-1.2 0-2.3-.5-3-1.5L6.1 9.5c-.2-.3-.6-.5-1-.5H3V7zm0 10h2.1c.6 0 1.1-.3 1.5-.7l1.6-2 1.2 1.6-1.4 1.8c-.8.8-1.8 1.3-2.9 1.3H3v-2zm14-6v2l4-3-4-3v2h-2.7c-.6 0-1.1.3-1.5.7l-1 1.3 1.2 1.6.8-1.1c.2-.3.6-.5 1-.5H17z"/></svg></button>
+          <button class="ic" id="ovPrev" type="button" aria-label="Previous"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6L18 18V6z"/></svg></button>
+          <button class="ic play" id="ovToggle" type="button" aria-label="Play"><svg viewBox="0 0 24 24" id="ovPlayIcon"><path d="M8 5v14l11-7z"/></svg></button>
+          <button class="ic" id="ovNext" type="button" aria-label="Next"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button>
+          <button class="ic" id="ovRepeat" type="button" aria-label="Repeat" title="Repeat"><svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg></button>
+        </div>
+        <div class="ovvol"><svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg><input type="range" id="ovVol" min="0" max="100" value="80" aria-label="Volume"></div>
+      </div>
+    </section>
+    <section class="ovlyrics" id="ovLyrics"><div class="lyr" id="lyr"></div></section>
+  </div>
+  <aside class="ovqueue" id="ovQueue" hidden><h3>Queue</h3><ul id="ovQueueList"></ul></aside>
+</div>
+
+<div class="sd" id="searchDock">
+  <div class="sd-panel" id="sdPanel" hidden></div>
+  <div class="sd-row">
+    <span class="sd-icon" id="sdIcon" hidden><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></span>
+    <input class="sd-input" id="sdInput" type="search" hidden placeholder="Search title or artist" aria-label="Search songs" autocomplete="off" spellcheck="false">
+    <button class="sd-btn" id="sdBtn" type="button" aria-label="Search songs" title="Search songs (/)"><svg viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><path d="M21 21l-4.3-4.3"/></svg></button>
+  </div>
+</div>
+
+<div class="isheet" id="info" hidden role="dialog" aria-modal="true" aria-label="Song info">
+  <div class="icard" id="infoCard"></div>
+</div>
+
+<div class="lp-wrap" id="lyrWrap">
+  <section class="lp" id="lyrPop" hidden aria-label="Lyrics">
+    <div class="lp-head">
+      <h3><svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>Lyrics</h3>
+      <div class="lp-sub" id="lyrSub">Nothing playing</div>
+    </div>
+    <div class="lp-body" id="lyrBody"></div>
+  </section>
+</div>
+
+<div class="dock idle" aria-label="Player">
+  <div class="cv" id="dock-cv"><svg class="cv-note" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/></svg><img id="cover" alt="" hidden></div>
+  <div class="info" id="dock-info"><b id="title">Nothing playing</b><span id="artist">Pick a song</span></div>
+  <button class="dock-shuffle" id="dockShuffle" type="button" disabled title="Shuffle every song"><svg viewBox="0 0 24 24"><path d="M16 3h5v5M4 20 21 3M21 16v5h-5M15 15l6 6M4 4l5 5"/></svg><span>Shuffle all</span></button>
+  <button class="ic likebtn" id="dockLike" type="button" aria-label="Like" title="Add to Liked Songs" disabled><svg viewBox="0 0 24 24"><path d="M12 20s-7-4.4-9.3-9A5.2 5.2 0 0 1 12 6a5.2 5.2 0 0 1 9.3 5c-2.3 4.6-9.3 9-9.3 9z"/></svg></button>
+  <div class="ctl">
+    <button class="ic opt" id="shuffle" aria-label="Shuffle" title="Shuffle">
+      <svg viewBox="0 0 24 24"><path d="M17 3h4v4l-1.5-1.5-4.6 4.6-1.4-1.4 4.6-4.6L17 3zM3 7h3.6c1 0 1.9.5 2.5 1.3l7.2 9.2c.2.3.6.5 1 .5H17v-2l4 3-4 3v-2h-.7c-1.2 0-2.3-.5-3-1.5L6.1 9.5c-.2-.3-.6-.5-1-.5H3V7zm0 10h2.1c.6 0 1.1-.3 1.5-.7l1.6-2 1.2 1.6-1.4 1.8c-.8.8-1.8 1.3-2.9 1.3H3v-2zm14-6v2l4-3-4-3v2h-2.7c-.6 0-1.1.3-1.5.7l-1 1.3 1.2 1.6.8-1.1c.2-.3.6-.5 1-.5H17z"/></svg>
+    </button>
+    <button class="ic" id="prev" aria-label="Previous" title="Previous (P)"><svg viewBox="0 0 24 24"><path d="M6 6h2v12H6zm3.5 6L18 18V6z"/></svg></button>
+    <button class="ic play" id="toggle" aria-label="Play" title="Play / pause (Space)"><svg viewBox="0 0 24 24" id="toggleIcon"><path d="M8 5v14l11-7z"/></svg></button>
+    <button class="ic" id="next" aria-label="Next" title="Next (N)"><svg viewBox="0 0 24 24"><path d="M16 6h2v12h-2zM6 18l8.5-6L6 6z"/></svg></button>
+    <button class="ic opt" id="repeat" aria-label="Repeat" title="Repeat: off">
+      <svg viewBox="0 0 24 24"><path d="M7 7h10v3l4-4-4-4v3H5v6h2V7zm10 10H7v-3l-4 4 4 4v-3h12v-6h-2v4z"/></svg>
+    </button>
+  </div>
+  <div class="tl">
+    <span class="t1" id="cur">0:00</span>
+    <div class="wave" id="wave" role="slider" aria-label="Seek" aria-valuemin="0" aria-valuemax="100" aria-valuenow="0"></div>
+    <span class="t2" id="dur">0:00</span>
+  </div>
+  <button class="ic queuebtn" id="queueBtn" type="button" aria-label="Queue" title="Queue (Q)" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><path d="M4 6h12M4 12h12M4 18h8M18 15v6M15 18h6"/></svg>
+  </button>
+  <button class="ic eqbtn" id="eqBtn" type="button" aria-label="Sound: effects and equalizer" title="Sound (E)" aria-expanded="false">
+    <svg viewBox="0 0 24 24"><path d="M4 21v-7M4 10V3M12 21v-9M12 8V3M20 21v-5M20 12V3M1 14h6M9 8h6M17 16h6"/></svg>
+  </button>
+  <button class="ic lyrbtn" id="lyrBtn" type="button" aria-label="Lyrics" title="Lyrics (L)" aria-expanded="false" aria-controls="lyrPop">
+    <svg viewBox="0 0 24 24"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5M9 13h6M9 17h4"/></svg>
+  </button>
+  <div class="vol">
+    <svg viewBox="0 0 24 24"><path d="M3 9v6h4l5 5V4L7 9H3zm13.5 3A4.5 4.5 0 0 0 14 8v8a4.5 4.5 0 0 0 2.5-4z"/></svg>
+    <input type="range" id="volume" min="0" max="100" value="80" aria-label="Volume">
+  </div>
+</div>
+
+<script type="module" src="js/main.js"></script>
+</body>
+</html>

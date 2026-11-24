@@ -1,0 +1,43 @@
+.toast {
+  position: fixed; left: 50%; bottom: 96px; transform: translateX(-50%); z-index: 60;
+  width: min(450px, calc(100% - 24px)); padding: 16px 18px; border-radius: 18px;
+  background: rgba(12, 12, 16, 0.96); border: 1px solid var(--line); box-shadow: 0 10px 40px rgba(0, 0, 0, .65);
+  display: grid; grid-template-columns: 34px 1fr 24px; gap: 4px 12px; align-items: start;
+}
+.toast[hidden] { display: none; }
+.toast .ti { width: 34px; height: 34px; border-radius: 50%; background: rgba(var(--accent-rgb), .18); display: grid; place-items: center; color: var(--pink); }
+.toast .ti svg { width: 17px; height: 17px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.toast b { display: block; font-size: .95rem; }
+.toast p { color: var(--muted); font-size: .82rem; }
+.toast .x { color: var(--muted); font-size: 1.3rem; line-height: 1; }
+.toast .btns { grid-column: 2 / 4; display: flex; gap: 10px; margin-top: 10px; }
+.toast .btns button { padding: 8px 20px; border-radius: 999px; font-weight: 600; font-size: .88rem; background: var(--panel2); }
+.toast .btns button.pri { background: var(--pink); color: #1a1020; }
+.note {
+  position: fixed; inset: 0; z-index: 70; padding: 20px;
+  display: grid; place-items: center; background: rgba(4, 4, 10, 0.62);
+}
+.note[hidden] { display: none; }
+.ncard {
+  position: relative; width: min(380px, 100%); padding: 32px 26px 26px; text-align: center;
+  display: flex; flex-direction: column; align-items: center; gap: 14px; border-radius: 24px;
+  background: linear-gradient(135deg, rgba(var(--accent-rgb), 0.14), rgba(110, 150, 255, 0.06)), rgba(12, 12, 16, 0.97);
+  border: 1px solid rgba(var(--accent-rgb), 0.25);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, .65), 0 0 40px rgba(var(--accent-rgb), 0.12), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+}
+.note .ni {
+  width: 60px; height: 60px; border-radius: 50%; display: grid; place-items: center; color: var(--pink);
+  background: rgba(var(--accent-rgb), .16); border: 1px solid rgba(var(--accent-rgb), .28);
+}
+.note .ni svg { width: 28px; height: 28px; fill: none; stroke: currentColor; stroke-width: 1.7; stroke-linecap: round; stroke-linejoin: round; }
+.note h2 { font-size: clamp(1.25rem, 4.5vw, 1.5rem); font-weight: 600; letter-spacing: -0.02em; line-height: 1.25; }
+.note h2 span { color: var(--pink); text-shadow: 0 0 16px rgba(var(--accent-rgb), 0.55); }
+.note p { color: var(--muted); font-size: .9rem; line-height: 1.55; }
+.note .go {
+  margin-top: 4px; padding: 10px 28px; border-radius: 999px; background: var(--pink); color: #1a1020; font-weight: 600; font-size: .92rem;
+}
+.note .x {
+  position: absolute; top: 12px; right: 12px; width: 32px; height: 32px; border-radius: 50%;
+  display: grid; place-items: center; font-size: 1.4rem; line-height: 1; color: var(--muted);
+}
+.note .x:hover { color: var(--text); background: var(--panel2); }

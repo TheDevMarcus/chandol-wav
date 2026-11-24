@@ -1,0 +1,4 @@
+# Copy to radio/.dev.vars for local `wrangler dev`.
+# In production set these with `npx wrangler secret put <NAME>` instead.
+IMGBB_KEY=your-imgbb-api-key
+ADMIN_KEY=a-long-random-string-you-choose

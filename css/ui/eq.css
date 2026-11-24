@@ -1,0 +1,78 @@
+.dock .eqbtn svg { width: 19px; height: 19px; fill: none; stroke: currentColor; stroke-width: 1.8; stroke-linecap: round; stroke-linejoin: round; }
+.dock .eqbtn.active { color: var(--pink); background: rgba(var(--accent-rgb), .12); }
+.dock .eqbtn { position: relative; }
+.dock .eqbtn.on::after {
+  content: ''; position: absolute; top: 6px; right: 6px; width: 6px; height: 6px; border-radius: 50%;
+  background: var(--pink); box-shadow: 0 0 8px rgba(var(--accent-rgb), .8);
+}
+.eq-wrap {
+  position: fixed; left: 50%; transform: translateX(-50%); z-index: 22;
+  bottom: calc(14px + 70px + 12px + env(safe-area-inset-bottom, 0px));
+  width: min(1040px, calc(100% - 24px));
+  display: flex; justify-content: flex-end; pointer-events: none;
+}
+.eq {
+  pointer-events: auto; width: min(520px, 100%);
+  max-height: calc(100vh - 200px); max-height: calc(100dvh - 200px); overflow-y: auto; scrollbar-width: none;
+  padding: 16px 18px 14px; border-radius: 22px;
+  background: linear-gradient(180deg, rgba(255, 255, 255, .075), rgba(255, 255, 255, .02)), rgba(12, 10, 18, .92);
+  border: 1px solid rgba(255, 255, 255, .1);
+  backdrop-filter: blur(22px); -webkit-backdrop-filter: blur(22px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, .6);
+  transform-origin: 90% 100%;
+  animation: lp-in .24s cubic-bezier(.2, .8, .2, 1);
+}
+.eq::-webkit-scrollbar { display: none; }
+.eq[hidden] { display: none; }
+.eq.leaving { pointer-events: none; animation: lp-out .2s cubic-bezier(.4, 0, 1, 1) forwards; }
+
+.eq-head { display: flex; align-items: center; justify-content: space-between; margin-bottom: 12px; }
+.eq-head h3 { display: flex; align-items: center; gap: 9px; font-size: 1.02rem; font-weight: 600; }
+.eq-head h3 svg { width: 18px; height: 18px; fill: none; stroke: var(--pink); stroke-width: 1.8; stroke-linecap: round; }
+.eq-headr { display: flex; align-items: center; gap: 10px; }
+.eq-reset { padding: 5px 12px; border-radius: 999px; font-size: .78rem; color: var(--muted); background: var(--panel2); border: 1px solid var(--line); }
+.eq-reset:hover { color: var(--text); }
+
+.eq-graph {
+  display: block; width: 100%; height: 120px; border-radius: 14px;
+  background: radial-gradient(120% 100% at 50% 100%, rgba(var(--accent-rgb), .07), transparent 70%), rgba(0, 0, 0, .28);
+  border: 1px solid var(--line);
+}
+
+.eq-bands { display: grid; grid-template-columns: repeat(10, 1fr); gap: 2px; margin: 14px 0 6px; }
+.eq-band { display: flex; flex-direction: column; align-items: center; gap: 6px; min-width: 0; }
+.eq-db { font-size: .7rem; font-weight: 600; color: var(--text); font-variant-numeric: tabular-nums; min-height: 1em; }
+.eq-hz { font-size: .68rem; color: var(--muted); }
+.eq-slider {
+  writing-mode: vertical-lr; direction: rtl;
+  width: 22px; height: 118px; margin: 0; cursor: pointer;
+  accent-color: var(--pink);
+}
+.eq.off .eq-bands, .eq.off .eq-presets { opacity: .5; }
+.eq.off .eq-db { color: var(--muted); }
+
+.eq-presets { display: flex; flex-wrap: wrap; gap: 6px; margin-top: 10px; }
+.eq-preset {
+  padding: 6px 12px; border-radius: 999px; font-size: .78rem; font-weight: 500;
+  color: var(--muted); background: var(--panel2); border: 1px solid var(--line);
+}
+.eq-preset:hover { color: var(--text); background: rgba(255, 255, 255, .09); }
+.eq-preset.active { color: #fff; background: var(--active); border-color: rgba(var(--accent-rgb), .4); }
+.eq-tip { margin-top: 10px; font-size: .72rem; color: var(--muted); }
+body:has(.eq:not([hidden])) .sd:not(.open) { opacity: 0; pointer-events: none; }
+
+@media (min-width: 1500px) { .eq-wrap { width: min(1200px, calc(100% - 24px)); } }
+@media (max-width: 560px) {
+  .eq-wrap { width: calc(100% - 16px); bottom: calc(14px + 62px + 10px + env(safe-area-inset-bottom, 0px)); }
+  .eq { width: 100%; padding: 14px 12px 12px; }
+  .eq-slider { height: 100px; }
+  .eq-hz { font-size: .6rem; }
+  .eq-db { font-size: .62rem; }
+}
+@media (max-height: 520px) and (orientation: landscape) {
+  .eq-wrap { bottom: calc(14px + 54px + 8px + env(safe-area-inset-bottom, 0px)); }
+  .eq-graph { height: 70px; }
+  .eq-slider { height: 80px; }
+  .eq-tip { display: none; }
+}
+@media (prefers-reduced-motion: reduce) { .eq { animation: none; } }

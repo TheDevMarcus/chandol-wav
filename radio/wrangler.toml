@@ -1,0 +1,28 @@
+name = "chandolwav-radio"
+main = "src/index.js"
+compatibility_date = "2026-11-01"
+workers_dev = true
+
+[[durable_objects.bindings]]
+name = "RADIO"
+class_name = "Radio"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["Radio"]
+
+[[durable_objects.bindings]]
+name = "ACCOUNTS"
+class_name = "Accounts"
+
+[[migrations]]
+tag = "v2"
+new_sqlite_classes = ["Accounts"]
+
+[[durable_objects.bindings]]
+name = "HUB"
+class_name = "Hub"
+
+[[migrations]]
+tag = "v3"
+new_sqlite_classes = ["Hub"]

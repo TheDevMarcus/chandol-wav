@@ -1,0 +1,72 @@
+{
+  "name": "chandol-wav-desktop",
+  "version": "0.1.0",
+  "description": "chandol.wav desktop player",
+  "main": "main.js",
+  "author": {
+    "name": "TheDevMarcus",
+    "email": "TheDevMarcus@users.noreply.github.com"
+  },
+  "license": "UNLICENSED",
+  "scripts": {
+    "prep": "sh prep.sh",
+    "start": "npm run prep && electron .",
+    "dist": "npm run prep && electron-builder",
+    "release": "npm run prep && electron-builder --publish always"
+  },
+  "devDependencies": {
+    "electron": "^33.2.0",
+    "electron-builder": "^25.1.8"
+  },
+  "build": {
+    "appId": "dev.pages.chandolwav.desktop",
+    "productName": ".wav",
+    "files": [
+      "main.js",
+      "dist/**/*"
+    ],
+    "directories": {
+      "output": "release",
+      "buildResources": "build"
+    },
+    "linux": {
+      "target": [
+        "AppImage",
+        "deb"
+      ],
+      "category": "AudioVideo",
+      "icon": "build/icon.png",
+      "desktop": {
+        "Name": ".wav",
+        "Comment": "Every chandol & BoyWithUke song in one place",
+        "Categories": "AudioVideo;Audio;Player;",
+        "StartupWMClass": ".wav"
+      },
+      "executableName": "chandol-wav",
+      "artifactName": "chandol-wav-${version}.${ext}"
+    },
+    "win": {
+      "target": [
+        "nsis"
+      ],
+      "icon": "build/icon.png",
+      "artifactName": "chandol-wav-setup-${version}.${ext}"
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true
+    },
+    "publish": [
+      {
+        "provider": "github",
+        "owner": "TheDevMarcus",
+        "repo": "chandol-wav"
+      }
+    ],
+    "artifactName": "chandol-wav-${version}.${ext}"
+  },
+  "homepage": "https://chandolwav.pages.dev",
+  "dependencies": {
+    "electron-updater": "^6.3.9"
+  }
+}

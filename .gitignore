@@ -1,0 +1,21 @@
+desktop/src-tauri/target/
+desktop/dist/
+desktop/icon-work/
+node_modules/
+.wrangler/
+dist/
+old/
+data/tracker.xlsx
+data/lyrics/
+data/lyrics-index.json
+*.log
+.DS_Store
+desktop-electron/node_modules/
+desktop-electron/release/
+desktop-electron/dist/
+desktop-electron/build/tray.png
+
+# local secrets
+.dev.vars
+.env
+.env.*

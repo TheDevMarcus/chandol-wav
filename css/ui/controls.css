@@ -1,0 +1,18 @@
+.ic { width: 36px; height: 36px; border-radius: 50%; display: grid; place-items: center; color: var(--text); transition: background .15s, color .15s; }
+.ic:hover { background: var(--panel2); }
+.ic svg { width: 19px; height: 19px; fill: currentColor; }
+.ic.on { color: var(--pink); }
+.play { width: 44px; height: 44px; background: #fff; color: #0a0a10; }
+.play:hover { background: var(--pink); }
+.play svg { width: 22px; height: 22px; }
+
+.wave { flex: 1; height: 34px; display: flex; align-items: center; gap: 2px; cursor: pointer; touch-action: none; min-width: 0; }
+.wave i { flex: 1; min-width: 1px; border-radius: 2px; background: rgba(255, 255, 255, 0.28); }
+.wave i.done { background: var(--pink); }
+
+input[type=range] {
+  -webkit-appearance: none; appearance: none; width: 96px; height: 4px; border-radius: 2px; cursor: pointer;
+  background: linear-gradient(to right, #fff var(--fill, 0%), rgba(255, 255, 255, .2) var(--fill, 0%));
+}
+input[type=range]::-webkit-slider-thumb { -webkit-appearance: none; width: 12px; height: 12px; border-radius: 50%; background: #fff; }
+input[type=range]::-moz-range-thumb { width: 12px; height: 12px; border-radius: 50%; background: #fff; border: 0; }

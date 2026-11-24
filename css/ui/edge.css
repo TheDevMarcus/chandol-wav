@@ -1,0 +1,40 @@
+.edge {
+  position: fixed; inset: 0; z-index: 40; pointer-events: none; overflow: hidden;
+  --gsize: clamp(90px, 12vmin, 150px);
+}
+.edge i {
+  position: absolute; display: block; opacity: 0; will-change: opacity;
+  background: var(--glow);
+  --gfade: #000, rgba(0, 0, 0, .7) 4%, rgba(0, 0, 0, .48) 9%, rgba(0, 0, 0, .3) 16%, rgba(0, 0, 0, .17) 25%, rgba(0, 0, 0, .08) 36%, rgba(0, 0, 0, .025) 50%, transparent 66%;
+  --gends: transparent, #000 14%, #000 86%, transparent;
+  -webkit-mask-composite: source-in; mask-composite: intersect;
+}
+.edge .top {
+  top: -1px; left: -1px; right: -1px; height: calc(var(--gsize) + 1px);
+  -webkit-mask-image: linear-gradient(to bottom, var(--gfade)), linear-gradient(to right, var(--gends));
+  mask-image: linear-gradient(to bottom, var(--gfade)), linear-gradient(to right, var(--gends));
+}
+.edge .bottom {
+  bottom: -1px; left: -1px; right: -1px; height: calc(var(--gsize) + 1px);
+  -webkit-mask-image: linear-gradient(to top, var(--gfade)), linear-gradient(to right, var(--gends));
+  mask-image: linear-gradient(to top, var(--gfade)), linear-gradient(to right, var(--gends));
+}
+.edge .left {
+  top: -1px; bottom: -1px; left: -1px; width: calc(var(--gsize) + 1px);
+  -webkit-mask-image: linear-gradient(to right, var(--gfade)), linear-gradient(to bottom, var(--gends));
+  mask-image: linear-gradient(to right, var(--gfade)), linear-gradient(to bottom, var(--gends));
+}
+.edge .right {
+  top: -1px; bottom: -1px; right: -1px; width: calc(var(--gsize) + 1px);
+  -webkit-mask-image: linear-gradient(to left, var(--gfade)), linear-gradient(to bottom, var(--gends));
+  mask-image: linear-gradient(to left, var(--gfade)), linear-gradient(to bottom, var(--gends));
+}
+html.noedge .edge, html.no-anim .edge, html.lite .edge { display: none; }
+
+.scolor {
+  flex: none; width: 46px; height: 30px; padding: 2px; border-radius: 9px;
+  background: rgba(255, 255, 255, 0.06); border: 1px solid var(--line); cursor: pointer;
+}
+.scolor::-webkit-color-swatch-wrapper { padding: 0; }
+.scolor::-webkit-color-swatch { border: 0; border-radius: 6px; }
+.scolor:disabled { opacity: 0.4; cursor: default; }

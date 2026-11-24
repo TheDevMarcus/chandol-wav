@@ -1,0 +1,19 @@
+html.juice {
+  --bg: #03090a;
+  --panel: rgba(14, 24, 19, 0.82);
+  --panel2: rgba(255, 255, 255, 0.055);
+  --pink: #3ddc84;
+  --pink2: #22b06a;
+  --accent-rgb: 61, 220, 132;
+  --accent2-rgb: 34, 176, 106;
+  --active: #0e2a1d;
+}
+html.juice .logo span { text-shadow: 0 0 18px rgba(61, 220, 132, 0.65); }
+html.juice .mark img { object-fit: contain; filter: drop-shadow(0 0 14px rgba(61, 220, 132, 0.45)); }
+html.juice #artistFilter { display: none; }
+
+html.juice #navAlbums,
+html.juice #navTracker,
+html.juice #navTrackerM,
+html.juice #navAbout,
+html.juice #navMissing { display: none; }

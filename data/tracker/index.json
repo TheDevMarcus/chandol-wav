@@ -1,0 +1,82 @@
+[
+ {
+  "tab": "Resources",
+  "file": "resources.json",
+  "rows": 6
+ },
+ {
+  "tab": "🎵Unreleased",
+  "file": "unreleased.json",
+  "rows": 1074
+ },
+ {
+  "tab": "🎧Released",
+  "file": "released.json",
+  "rows": 137
+ },
+ {
+  "tab": "Recent",
+  "file": "recent.json",
+  "rows": 1514
+ },
+ {
+  "tab": "⭐️Best Of",
+  "file": "best-of.json",
+  "rows": 503
+ },
+ {
+  "tab": "🏆Grails",
+  "file": "grails.json",
+  "rows": 503
+ },
+ {
+  "tab": "Wanted",
+  "file": "wanted.json",
+  "rows": 2
+ },
+ {
+  "tab": "StemsProject Files",
+  "file": "stemsproject-files.json",
+  "rows": 336
+ },
+ {
+  "tab": "Tracklists",
+  "file": "tracklists.json",
+  "rows": 54
+ },
+ {
+  "tab": "Groupbuys",
+  "file": "groupbuys.json",
+  "rows": 10
+ },
+ {
+  "tab": "Art",
+  "file": "art.json",
+  "rows": 102
+ },
+ {
+  "tab": "Media (WIP)",
+  "file": "media-wip.json",
+  "rows": 4
+ },
+ {
+  "tab": "Videos",
+  "file": "videos.json",
+  "rows": 4
+ },
+ {
+  "tab": "Social Media Posts",
+  "file": "social-media-posts.json",
+  "rows": 218
+ },
+ {
+  "tab": "Accounts",
+  "file": "accounts.json",
+  "rows": 56
+ },
+ {
+  "tab": "Key",
+  "file": "key.json",
+  "rows": 26
+ }
+]
