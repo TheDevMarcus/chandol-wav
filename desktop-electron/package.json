@@ -1,6 +1,6 @@
 {
   "name": "chandol-wav-desktop",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "chandol.wav desktop player",
   "main": "main.js",
   "author": {
